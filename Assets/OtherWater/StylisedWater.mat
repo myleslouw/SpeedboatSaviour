@@ -82,7 +82,7 @@ Material:
     m_Floats:
     - Vector1_16b5521809504be9b392203fdd011b9d: 1
     - Vector1_3d3d2395f1bc405baa46efcd3a304d11: 0.075
-    - Vector1_4002599f0183476bb70d9e0c91288e25: 0.02
+    - Vector1_4002599f0183476bb70d9e0c91288e25: 0.01
     - Vector1_554fa43c9d12479c82af8e0a18ff24c3: 1.8
     - Vector1_6f0508b99038436bb573c0a4e9e57261: 1
     - Vector1_7d56a7220a7f4bd9a2403057e9f573dd: 2
@@ -124,6 +124,7 @@ Material:
     - Color_4f9f4f7d46434529bd17efc6c3f731a0: {r: 0, g: 0.8272922, b: 1, a: 0.15686275}
     - Color_addae828290a43dc87e9e93fae87fbe9: {r: 1, g: 1, b: 1, a: 1}
     - DeepWater: {r: 0, g: 0.48622957, b: 0.7830189, a: 1}
+    - ShallowWater: {r: 0, g: 0.721844, b: 0.9339623, a: 0}
     - Vector2_266002cf1714405c81287b34d887eb63: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_38d67d848262470dbce8425d7f053b39: {r: 3, g: 10, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
