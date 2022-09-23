@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="Pollutant", menuName ="CustomItems")]
+[CreateAssetMenu(fileName ="Pollutant", menuName ="CustomItems/Pollutant")]
 public class PollutantObject : ScriptableObject
 {
 
