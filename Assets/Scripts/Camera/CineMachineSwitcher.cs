@@ -21,13 +21,17 @@ public class CineMachineSwitcher : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Equals))
         {
+            mainCam.gameObject.SetActive(true);
             mainCam.Priority = mainPriority;
             closeUpCam.Priority = offCam;
+            closeUpCam.gameObject.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Minus))
         {
+            closeUpCam.gameObject.SetActive(true);
             mainCam.Priority = offCam;
             closeUpCam.Priority = mainPriority;
+            mainCam.gameObject.SetActive(false);
         }
     }
 }

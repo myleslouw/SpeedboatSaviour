@@ -22,11 +22,6 @@ public class BoatController : MonoBehaviour
         //plays the sound
         audioManager.Play("BoatSound");
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void FixedUpdate()

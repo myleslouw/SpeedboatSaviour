@@ -63,8 +63,6 @@ public class MilestoneManager : MonoBehaviour
             LevelUp();
         }
 
-        //triggers the event to change the UI back to 0
-        EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.RECYCLE_UI, this, recycler);
     }
 
     private void LevelUp()

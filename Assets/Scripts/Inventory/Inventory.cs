@@ -79,6 +79,8 @@ public class Inventory : MonoBehaviour
         //sets the types amount in inv to 0
         PollutantInventory[recycler.recyclerType] = 0;
 
+        //it then updaes the UI to show the 0 in invetory
+        EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.RECYCLE_UI, this, recycler);
     }
 
 }

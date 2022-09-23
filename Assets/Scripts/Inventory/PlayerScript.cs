@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//HANDLES PLAYER COLLISION
+//HANDLES PLAYER COLLISION and durability
 
 
 public class PlayerScript : MonoBehaviour
 {
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,14 @@ public class PlayerScript : MonoBehaviour
             print("Recycler Collision");
             //if the player collides with a recycler, it will trigger the recycle event
             EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.RECYCLE_POLLUTANT, this, other.gameObject.GetComponent<PollutantRecycler>());
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.GetComponent<Hazard>())
+        {
+            //if the player touches a hazard, it will WHILE the player touches it
+            GetComponent<Boat>().TakeDamage();
         }
     }
 }

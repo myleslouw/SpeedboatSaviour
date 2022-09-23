@@ -17,5 +17,5 @@ MonoBehaviour:
   volume: 0.435
   source: {fileID: 0}
   soundLoop: 1
-  spatialBlend: 0
+  spatialBlend: 1
   ExistingSource: 1

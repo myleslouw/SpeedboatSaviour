@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
             sound.source.clip = sound.clip;
             sound.source.volume = sound.volume;
             sound.source.loop = sound.soundLoop;
+            sound.source.spatialBlend = sound.spatialBlend;
 
         }
     }

@@ -8,7 +8,8 @@ public class PollutantManager : MonoBehaviour
     //when creating it randoms a pollutant type and gives it a reward for recycling based on the type
     [SerializeField] Pollutant[] PollutantOptions = new Pollutant[2];
 
-    private List<Pollutant> pollutants = new List<Pollutant>();
+    //list of current pollutants in the game
+    //public List<Pollutant> pollutants = new List<Pollutant>();
     const float WATERHEIGHT = 4.03f;
     const int SpawnSpace = 20;
 
@@ -35,8 +36,8 @@ public class PollutantManager : MonoBehaviour
     {
         //creates a pollutant
         Pollutant spawnedObj = new Pollutant();
-        spawnedObj = Instantiate(PollutantOptions[rand.Next(0,3)], positions[index], Quaternion.identity);
-        pollutants.Add(spawnedObj);
+        spawnedObj = Instantiate(PollutantOptions[rand.Next(0,4)], positions[index], Quaternion.identity);
+        //pollutants.Add(spawnedObj);
     }
 
 }
