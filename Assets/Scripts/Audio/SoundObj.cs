@@ -13,4 +13,8 @@ public class SoundObj : ScriptableObject
 
     public AudioSource source;
     public bool soundLoop;
+
+    [Range(0f, 1f)]
+    public float spatialBlend;
+    public bool ExistingSource;
 }

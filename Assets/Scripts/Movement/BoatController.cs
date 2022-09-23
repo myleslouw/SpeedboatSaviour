@@ -8,13 +8,24 @@ public class BoatController : MonoBehaviour
     public Transform Director;
     public float speed = 3;        //speed for game, 1 for testing for some reason
     public AudioManager audioManager;
-    bool playAudio;                 //when moving this will be set to true signalling to play audio
+    public SoundObj soundObj;
 
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+
+        //sets the source of the sound to this game object
+        soundObj.source = GetComponent<AudioSource>();
+        //adds the sound to the list of sounds
+        audioManager.AddSoundToList(soundObj);
+        //plays the sound
+        audioManager.Play("BoatSound");
+    }
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        audioManager.Play("BoatSound");
+
     }
 
     // Update is called once per frame

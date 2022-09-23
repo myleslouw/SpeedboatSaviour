@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8114e3d67492248ab818766925ffd0, type: 3}
   m_Name: BoatSound
   m_EditorClassIdentifier: 
-  SoundName: 
-  clip: {fileID: 0}
-  volume: 0
+  SoundName: BoatSound
+  clip: {fileID: 8300000, guid: a270f5a15727afa44a140e0e4ad4f231, type: 3}
+  volume: 0.435
   source: {fileID: 0}
+  soundLoop: 1
+  spatialBlend: 0
+  ExistingSource: 1
