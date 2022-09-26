@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Glass
   m_EditorClassIdentifier: 
   pollutantType: 0
-  pollutantReward: 1
-  pollutantRotation: {x: 0, y: 0.1, z: 0.1}
+  pollutantRotation: {x: 0, y: 0.1, z: 0}
+  startOffset: {x: 0, y: 0, z: 0}

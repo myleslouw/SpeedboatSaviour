@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: BoatSound
   clip: {fileID: 8300000, guid: a270f5a15727afa44a140e0e4ad4f231, type: 3}
-  volume: 0.435
+  volume: 0.405
   source: {fileID: 0}
   soundLoop: 1
   spatialBlend: 1

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boat : MonoBehaviour
 {
@@ -9,16 +10,12 @@ public class Boat : MonoBehaviour
     //the amount of damage the boat takes per tick
     public int Damage;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public Slider durabiltySlider;
+    
     // Update is called once per frame
     void Update()
     {
-        
+        durabiltySlider.value = Durabilty;
     }
 
     public void TakeDamage()
