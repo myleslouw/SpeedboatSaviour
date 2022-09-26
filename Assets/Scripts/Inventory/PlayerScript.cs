@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//HANDLES PLAYER COLLISION and durability
-
-
+//HANDLES PLAYER COLLISION
 public class PlayerScript : MonoBehaviour
 {
     
@@ -16,32 +14,52 @@ public class PlayerScript : MonoBehaviour
         
     }
 
+    //TRIGGER ONCE
     private void OnTriggerEnter(Collider other)
     {
+        GameObject collisionObj = other.gameObject;
+
         //checks collision with pollutant
-        if (other.gameObject.GetComponent<Pollutant>())
+        if (collisionObj.GetComponent<Pollutant>())
         {
 
             //Posts the event to all listeners of the POLLUTANT_PICKUP event and sends the pollutant for listeners to use
-            EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.POLLUTANT_PICKUP, this, other.gameObject.GetComponent<Pollutant>());
+            EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.POLLUTANT_PICKUP, this, collisionObj.GetComponent<Pollutant>());
 
-            //Destroys obj
-            Destroy(other.gameObject);
+            //plays the animation and destroys the obj
+            collisionObj.GetComponent<Pollutant>().PickUpAnimation();
         }
 
         //checks collision with recycler
-        if (other.gameObject.GetComponent<PollutantRecycler>())
+        if (collisionObj.GetComponent<PollutantRecycler>())
         {
-            print("Recycler Collision");
             //if the player collides with a recycler, it will trigger the recycle event
-            EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.RECYCLE_POLLUTANT, this, other.gameObject.GetComponent<PollutantRecycler>());
+            EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.RECYCLE_POLLUTANT, this, collisionObj.GetComponent<PollutantRecycler>());
+        }
+
+        //collision with NPC collider
+        if (collisionObj.GetComponent<NPC>())
+        {
+            //if player collides with NPC collider it will trigger the NPC talk event 
+            EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_TALK, this, collisionObj.GetComponent<NPC>());
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<NPC>())
+        {
+            EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_LEAVE, this, null);
         }
     }
+
+    //TRIGGER WHILE TOUCHING
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponent<Hazard>())
         {
-            //if the player touches a hazard, it will WHILE the player touches it
+            //if the player touches a hazard, it will damage WHILE the player touches it
             GetComponent<Boat>().TakeDamage();
         }
     }

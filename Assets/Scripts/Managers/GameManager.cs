@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     {
         audioManager = GetComponent<AudioManager>();
         audioManager.Play("WaveAmbience");
+
     }
 
 }

@@ -11,9 +11,9 @@ public class Pollutant : MonoBehaviour
         transform.Rotate(pollutantObj.startOffset);
 
         //the listener for the pickup event
-        EventManager.OnDelegateEvent PickupAnimationDelegate = PickUpAnimation;
+        //EventManager.OnDelegateEvent PickupAnimationDelegate = PickUpAnimation;
         //EventManager.Instance.AddListener(EventManager.EVENT_TYPE.POLLUTANT_PICKUP, PickupPollutant);
-        EventManager.Instance.AddListener(EventManager.EVENT_TYPE.POLLUTANT_PICKUP, PickupAnimationDelegate);
+        //EventManager.Instance.AddListener(EventManager.EVENT_TYPE.POLLUTANT_PICKUP, PickupAnimationDelegate);
     }
     private void Update()
     {
@@ -21,10 +21,31 @@ public class Pollutant : MonoBehaviour
         transform.Rotate(pollutantObj.pollutantRotation);
     }
 
-    private void PickUpAnimation(EventManager.EVENT_TYPE eventType, Component sender, object Param = null)
+    public void PickUpAnimation()
     {
-        //StartCoroutine();
+        StartCoroutine(ScaleOverTime(0.6f));
     }
-    
-    
+
+    IEnumerator ScaleOverTime(float time)
+    {
+
+        //Stack overflow answer by dmg0600 https://answers.unity.com/questions/805199/how-do-i-scale-a-gameobject-over-time.html
+        //accessed 26 Sept 2022
+
+        Vector3 originalScale = transform.localScale;                       //starting size
+        Vector3 destinationScale = new Vector3(0f, 0f, 0f);                 //final size (zero)
+
+        float currentTime = 0.0f;
+
+        do
+        {
+            //scales the game object down over time
+            this.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
+            currentTime += Time.deltaTime;
+            yield return null;
+        } while (currentTime <= time);
+
+        Destroy(gameObject);
+    }
+
 }

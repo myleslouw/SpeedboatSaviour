@@ -36,7 +36,7 @@ public class PollutantManager : MonoBehaviour
     {
         //creates a pollutant
         Pollutant spawnedObj = new Pollutant();
-        spawnedObj = Instantiate(PollutantOptions[rand.Next(0,4)], positions[index], Quaternion.identity);
+        spawnedObj = Instantiate(PollutantOptions[rand.Next(0,3)], positions[index], Quaternion.identity);
         //pollutants.Add(spawnedObj);
     }
 

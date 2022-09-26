@@ -32,6 +32,20 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public bool getSoundStatus(string soundName)
+    {
+        SoundObj sound = sounds.Find(sound => sound.SoundName == soundName);
+
+        if (sound.source.isPlaying)
+        {
+            //if the sound is playing return true
+            return true;
+        } else
+        {
+            //else false
+            return false;
+        }
+    }
     public void AddSoundToList(SoundObj newSound)
     {
         sounds.Add(newSound);
@@ -44,10 +58,11 @@ public class AudioManager : MonoBehaviour
         SoundObj sound = sounds.Find(sound => sound.SoundName == soundName);
         if (sound == null)
         {
-            Debug.LogWarning("Sound: " + name + " not found!");
+            Debug.LogWarning("Sound: " + soundName + " not found!");
             return;
         }
         sound.source.Play();
+        print("playing: " + soundName);
     }
     public void StopPlaying(string _soundName)
     {
@@ -56,7 +71,7 @@ public class AudioManager : MonoBehaviour
 
         if (sound == null)
         {
-            Debug.LogWarning("Sound: " + name + " not found!");
+            Debug.LogWarning("Sound: " + _soundName + " not found!");
             return;
         }
 

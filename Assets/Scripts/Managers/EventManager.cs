@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//MASTERING UNITY SCRIPTING - ALAN THORN
+//"Alternative with Delegates" pg 141
+//The textbook shows a custom event manager
+
 public class EventManager : MonoBehaviour
 {
     //possible events that will take place in the game
     public enum EVENT_TYPE
     {
         GAME_START, GAME_END, GAME_PAUSE, POLLUTANT_PICKUP, PICKUP_UI,
-        RECYCLE_POLLUTANT, ADD_XP, RECYCLE_UI, LEVEL_UP
+        RECYCLE_POLLUTANT, ADD_XP, RECYCLE_UI, LEVEL_UP, NPC_TALK, NPC_LEAVE
     }
 
     public static EventManager Instance
