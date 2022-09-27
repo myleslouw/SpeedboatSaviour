@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text glassCounter, plasticCounter, generalWasteCounter;
     private Dictionary<PollutantType.type, Text> TypeCounters;
     [SerializeField] TextMeshProUGUI levelNum;
+    [SerializeField] GameObject Milestone;
 
 
     // Start is called before the first frame update
@@ -71,5 +72,15 @@ public class UIManager : MonoBehaviour
 
         //set lvl num to current milstone
         levelNum.text = MilestoneManager.Instance.currentMilestone.ToString();
+        OpenMilestoneUI();
+    }
+
+    public void OpenMilestoneUI()
+    {
+        Milestone.SetActive(true);
+    }
+    public void CloseMilestoneUI()
+    {
+        Milestone.SetActive(false);
     }
 }

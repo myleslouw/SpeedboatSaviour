@@ -13,17 +13,26 @@ public class PollutantManager : MonoBehaviour
     const int SpawnSpace = 20;
     const float oilHeight = 3.6f;      //the height the oil will be (just below water)
 
-    Vector3[] positions;
+    private int currentLevelNum;
+
     System.Random rand = new System.Random();
 
+   
     //dictionary to store the levelnum as key and an oil item which holds an array of oil positions and types
     Dictionary<int, OilItem> oilSpills = new Dictionary<int, OilItem>()
     {
         //1st level
         { 0, new OilItem(new OilInfo[]
         {
-            new OilInfo(new Vector3(0, oilHeight, 0), 0),    //small
-            new OilInfo(new Vector3(0, oilHeight, 1), 0),    //big
+            new OilInfo(new Vector3(-3, oilHeight, 2), 0),    //small
+            new OilInfo(new Vector3(4, oilHeight, 2), 1),    //big
+            new OilInfo(new Vector3(14, oilHeight, -5), 0),    //small
+            new OilInfo(new Vector3(-9, oilHeight, -4), 1),    //big
+            new OilInfo(new Vector3(7, oilHeight, -14), 0),    //small
+            new OilInfo(new Vector3(10, oilHeight, 10), 1),    //big
+            new OilInfo(new Vector3(-3, oilHeight, 8), 1),    //big
+            new OilInfo(new Vector3(-5, oilHeight, -10), 0),    //small
+            new OilInfo(new Vector3(-3, oilHeight, -16), 0),    //small
         })
         },
 
@@ -33,26 +42,33 @@ public class PollutantManager : MonoBehaviour
 
     };
 
+
     void Start()
     {
-        positions = new Vector3[] { new Vector3(1, WATERHEIGHT, 1), new Vector3(4, WATERHEIGHT, -4), new Vector3(-1, WATERHEIGHT, 4), new Vector3(-10, WATERHEIGHT, 7), new Vector3(SpawnSpace / 4, WATERHEIGHT, SpawnSpace / 4), new Vector3(SpawnSpace / 3, WATERHEIGHT, SpawnSpace / -3), new Vector3(SpawnSpace / -4, WATERHEIGHT, SpawnSpace / 4) };
+
+        currentLevelNum = 0;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            for (int i = 0; i < positions.Length; i++)
+            for (int i = 0; i < 7; i++)
             {
-                SpawnPollutant(i);
+                SpawnPollutant();
             }
+        }
 
-            for (int i = 0; i < oilSpills[0].OilSpillsInLevel.Length; i++)
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            //spawns the oil spills for that level
+            for (int i = 0; i < oilSpills[currentLevelNum].OilSpillsInLevel.Length; i++)
             {
+
                 Hazard spawnedHazard = new Hazard();
                 int hazardType = oilSpills[0].OilSpillsInLevel[i].oilType;  //gets the oil type
-                Vector3 oilPosition = oilSpills[0].OilSpillsInLevel[i].oilPosition;
-                spawnedHazard = Instantiate(HazardOptions[hazardType], oilPosition, Quaternion.identity);
+                Vector3 oilPosition = oilSpills[0].OilSpillsInLevel[i].oilPosition;                         //  vv   spawns flat and at a random angle
+                spawnedHazard = Instantiate(HazardOptions[hazardType], oilPosition, Quaternion.Euler(new Vector3(-90, 0, rand.Next(0, 180))));
             }
         }
     }
@@ -61,11 +77,11 @@ public class PollutantManager : MonoBehaviour
     {
 
     }
-    public void SpawnPollutant(int index)
+    public void SpawnPollutant()
     {
         //creates a pollutant
         Pollutant spawnedObj = new Pollutant();
-        spawnedObj = Instantiate(PollutantOptions[rand.Next(0,3)], positions[index], Quaternion.identity);
+        spawnedObj = Instantiate(PollutantOptions[rand.Next(0,3)], new Vector3(rand.Next(-14,15), WATERHEIGHT, rand.Next(-19,14)), Quaternion.identity);
         //pollutants.Add(spawnedObj);
     }
 
