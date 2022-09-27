@@ -49,7 +49,6 @@ public class AudioManager : MonoBehaviour
     public void AddSoundToList(SoundObj newSound)
     {
         sounds.Add(newSound);
-        print("Sound Added");
     }
 
     public void Play(string soundName)

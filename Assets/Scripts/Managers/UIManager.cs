@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] Text glassCounter, plasticCounter, generalWasteCounter;
     private Dictionary<PollutantType.type, Text> TypeCounters;
+    [SerializeField] TextMeshProUGUI levelNum;
+
 
     // Start is called before the first frame update
 
     private void Start()
     {
+        //sets lvl num
+        levelNum.text = MilestoneManager.Instance.currentMilestone.ToString();
+
         //puts the counters in the dictionary
         CreateCounters();
 
@@ -62,5 +68,8 @@ public class UIManager : MonoBehaviour
     private void LevelUpUI(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
     {
         //change the UI to show new level
+
+        //set lvl num to current milstone
+        levelNum.text = MilestoneManager.Instance.currentMilestone.ToString();
     }
 }

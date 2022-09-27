@@ -59,6 +59,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Hazard>())
         {
+           
             //if the player touches a hazard, it will damage WHILE the player touches it
             GetComponent<Boat>().TakeDamage();
         }

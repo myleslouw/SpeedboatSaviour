@@ -7,6 +7,8 @@ public class MilestoneManager : MonoBehaviour
     public int currentMilestone;
     public int currentXP;
     public int nextLevelXPRequirement;
+
+
     Dictionary<int, int> LevelRequirements = new Dictionary<int, int>()
     {
         //holds XP needed for each milestone
@@ -42,7 +44,8 @@ public class MilestoneManager : MonoBehaviour
     {
         currentXP = 0;
         currentMilestone = 0;
-
+      
+        //sets the next lvl xp
         nextLevelXPRequirement = LevelRequirements[currentMilestone];
 
         EventManager.OnDelegateEvent AddXPDelegate = AddXP;
@@ -74,7 +77,7 @@ public class MilestoneManager : MonoBehaviour
         //sets the XP amount to the levels requirement
         nextLevelXPRequirement = LevelRequirements[currentMilestone];
 
-        //triggers the level up event for UI etc, sends the script as obj t oaccess levels etc
-        EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.LEVEL_UP, this, this);
+        //triggers the level up event for UI etc
+        EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.LEVEL_UP, this, null);
     }
 }

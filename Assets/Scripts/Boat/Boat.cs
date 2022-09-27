@@ -11,7 +11,12 @@ public class Boat : MonoBehaviour
     public int Damage;
 
     public Slider durabiltySlider;
-    
+
+    private void Start()
+    {
+        Durabilty = 100;
+        Damage = 1;
+    }
     // Update is called once per frame
     void Update()
     {
