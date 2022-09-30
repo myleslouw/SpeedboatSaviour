@@ -24,10 +24,7 @@ public class AudioManager : MonoBehaviour
                 sound.source = gameObject.GetComponent<AudioSource>();
             }
 
-            sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
-            sound.source.loop = sound.soundLoop;
-            sound.source.spatialBlend = sound.spatialBlend;
+            SourceSettings(sound);
 
         }
     }
@@ -48,6 +45,13 @@ public class AudioManager : MonoBehaviour
     }
     public void AddSoundToList(SoundObj newSound)
     {
+        if (!newSound.ExistingSource)
+        {
+            //means it doesnt have a source given to it and will use the Game manager as the source
+            newSound.source = gameObject.GetComponent<AudioSource>();
+        }
+
+        SourceSettings(newSound);
         sounds.Add(newSound);
     }
 
@@ -60,8 +64,17 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + soundName + " not found!");
             return;
         }
+        SourceSettings(sound);
         sound.source.Play();
         print("playing: " + soundName);
+    }
+
+    private void SourceSettings(SoundObj newSound)
+    {
+        newSound.source.clip = newSound.clip;
+        newSound.source.volume = newSound.volume;
+        newSound.source.loop = newSound.soundLoop;
+        newSound.source.spatialBlend = newSound.spatialBlend;
     }
     public void StopPlaying(string _soundName)
     {

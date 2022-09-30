@@ -10,12 +10,14 @@ public class UIManager : MonoBehaviour
     private Dictionary<PollutantType.type, Text> TypeCounters;
     [SerializeField] TextMeshProUGUI levelNum;
     [SerializeField] GameObject Milestone;
+    AudioManager audioManager;
 
 
     // Start is called before the first frame update
 
     private void Start()
     {
+        audioManager = GetComponent<AudioManager>();
         //sets lvl num
         levelNum.text = MilestoneManager.Instance.currentMilestone.ToString();
 
@@ -72,6 +74,11 @@ public class UIManager : MonoBehaviour
 
         //set lvl num to current milstone
         levelNum.text = MilestoneManager.Instance.currentMilestone.ToString();
+
+        //play sound
+        audioManager.Play("MilestoneSound");
+
+        //show Milestone
         OpenMilestoneUI();
     }
 

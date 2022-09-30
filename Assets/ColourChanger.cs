@@ -5,8 +5,8 @@ using UnityEngine;
 public class ColourChanger : MonoBehaviour
 {
     public MeshRenderer Mesh;
-    Color ShallowStartColour = new Color(0.081f, 0.281f, 0.459f, 0.808f);
-    Color DeepStartColour = new Color(0.113f, 0.376f, 0.047f, 0.800f);
+    Color ShallowStartColour = new Color(0.081f, 0.281f, 0.459f, 0.247f);
+    Color DeepStartColour = new Color(0.000f, 0.533f, 0.035f, 0.537f);
 
     Color ShallowEndColour = new Color(0.118f, 0.925f, 0.840f, 0.808f);
     Color DeepEndColour = new Color(0.087f, 0.452f, 0.594f, 0.694f);

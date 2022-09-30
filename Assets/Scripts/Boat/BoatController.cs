@@ -9,7 +9,6 @@ public class BoatController : MonoBehaviour
     public float speed = 3;        //speed for game, 1 for testing for some reason
     public AudioManager audioManager;
     public SoundObj soundObj;
-    float lastSpeed;            //speed last frame
     bool moving;
 
     private void Awake()
@@ -24,9 +23,7 @@ public class BoatController : MonoBehaviour
     }
     private void Start()
     {
-        //plays the sound
-        //audioManager.Play("BoatSound");
-        lastSpeed = 0;
+
     }
     // Update is called once per frame
     void FixedUpdate()

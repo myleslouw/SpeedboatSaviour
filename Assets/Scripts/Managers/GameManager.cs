@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class GameManager : MonoBehaviour
         audioManager = GetComponent<AudioManager>();
         audioManager.Play("WaveAmbience");
 
+    }
+
+    public static void StartGame()
+    {
+        //changes scene from menu to game (Called in MenuManager)
+        SceneManager.LoadScene(1);
     }
 
 }
