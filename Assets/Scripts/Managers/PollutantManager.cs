@@ -45,8 +45,7 @@ public class PollutantManager : MonoBehaviour
 
     void Start()
     {
-
-        currentLevelNum = 0;
+        currentLevelNum = GameManager.Level;
     }
 
     private void Update()

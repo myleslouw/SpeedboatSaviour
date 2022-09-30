@@ -43,7 +43,7 @@ public class MilestoneManager : MonoBehaviour
     private void Start()
     {
         currentXP = 0;
-        currentMilestone = 0;
+        currentMilestone = GameManager.Level;
       
         //sets the next lvl xp
         nextLevelXPRequirement = LevelRequirements[currentMilestone];

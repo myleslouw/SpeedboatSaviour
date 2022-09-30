@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static int Level = 0;
     AudioManager audioManager;
+    GameObject DurabilitySlider;
+
+    [SerializeField] GameObject[] BoatSelection;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,4 +25,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public static void ChangeLevel()
+    {
+        //loads the scene again with the relevant data for the level
+        SceneManager.LoadScene(1);
+
+    }
+    public void ChangeBoat()
+    {
+
+    }
 }

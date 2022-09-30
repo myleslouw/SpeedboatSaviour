@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: MilestoneSound
   clip: {fileID: 8300000, guid: bb8f35aea094bb443bf27b0e90c529e3, type: 3}
-  volume: 0
+  volume: 0.133
   source: {fileID: 0}
   soundLoop: 0
   spatialBlend: 0

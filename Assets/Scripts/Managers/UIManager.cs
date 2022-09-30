@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         audioManager = GetComponent<AudioManager>();
+        Milestone.SetActive(false);
         //sets lvl num
         levelNum.text = MilestoneManager.Instance.currentMilestone.ToString();
 
