@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08071ba53a644b4e9c9b2b60070b608, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  npcName: Your mOm
+  npcName: Roger, local
   sentences:
-  - 'Hi, my name is Y/N. You just completed *insert milestone*! At this rate, the
-    water source will be fresh as daisies in no time. '
+  - Hi, my name is Roger, thanks for offering to help out
   - "Hi! I am excited to be helping the community, but I don\u2019t think my boat
     can keep up\u2026"
-  - Oh! you must go see Pete, he works over at *insert location* and will gladly
-    upgrade your boat //for a reasonable penny//.
+  - 'Oh! you must go see Pete, he works over at the far left side of the water and
+    will gladly upgrade your boat '
+  - Upgrade? How?
+  - Well, every boat has a certain durability and speed level. Your boat is currently
+    level 1 durability and speed.
+  - 'Will these upgrades make my boat look cooler too?! '
+  - "Yes of course! Pete is the best in the business. You should go see him now,
+    I\u2019m sure he cannot wait to meet you."
+  rewardAfter: 0
