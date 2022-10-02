@@ -72,11 +72,9 @@ public class CineMachineSwitcher : MonoBehaviour
     public void RevertNPCCam(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
     {
         //onces the player leaves the NPC speakable area
+
         //focuses on the player
         CameraPlayer();
-
-        //sets the NPC cam to null
-        npcCam = null;
 
     }
 }

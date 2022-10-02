@@ -8,17 +8,15 @@ public class NPC : MonoBehaviour
 {
 
     public CinemachineVirtualCamera npcCamera;     //each NPC has a virtual cam attached that the player will switch to when they in range (collider)
+    DialogueManager dialogueManager;
+    public DialogueObj dialogue;
+    public string npcName;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-      
+        npcName = dialogue.npcName;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
 }

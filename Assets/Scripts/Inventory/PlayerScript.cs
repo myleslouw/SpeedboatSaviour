@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     //TRIGGER ONCE
     private void OnTriggerEnter(Collider other)
     {
+        //stores the gameobject it collides with
         GameObject collisionObj = other.gameObject;
 
         //checks collision with pollutant

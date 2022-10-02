@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8984502897487517263}
   - component: {fileID: 8984502897487517262}
   - component: {fileID: 8984502897487517249}
+  - component: {fileID: 7000805649171131087}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -96,6 +97,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7000805649171131087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8984502897487517248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10c97cb0054e1b4988dfc994450848d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcCamera: {fileID: 8984502899377641424}
+  dialogue: {fileID: 11400000, guid: 4b124cd0fc51302498a696b37b962246, type: 2}
+  npcName: 
 --- !u!1 &8984502897610266910
 GameObject:
   m_ObjectHideFlags: 0

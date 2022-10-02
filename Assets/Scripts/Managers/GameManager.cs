@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static int Level = 0;
     AudioManager audioManager;
     GameObject DurabilitySlider;
-
+    int currentBoat;
     [SerializeField] GameObject[] BoatSelection;
 
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     {
         audioManager = GetComponent<AudioManager>();
         audioManager.Play("WaveAmbience");
-
+        currentBoat = 0;
     }
 
     public static void StartGame()
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     }
     public void ChangeBoat()
     {
-
+        currentBoat++;
+        //set the durability and stuff in here
     }
 }
