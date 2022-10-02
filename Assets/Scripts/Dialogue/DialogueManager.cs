@@ -39,8 +39,16 @@ public class DialogueManager : MonoBehaviour
 
             if (numSentences == dialogueIndex)
             {
+                //DIALOGUE FINISHED
                 //if all the sentences have been said
-                //stop the dialogue and undo camera
+                if (NPCinRange.dialogue.rewardAfter)
+                {
+                    //if there is a reward from completing the dialogue
+                    //rewards will be in a dictionary and the a key will be used from the OBj to the dictionary
+                    EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.UPGRADE_BOAT, this, null);
+                }
+
+                //stop the dialogue and undo 
                 EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_LEAVE, this, null);
             }
             else
@@ -56,7 +64,8 @@ public class DialogueManager : MonoBehaviour
         //shows dialogue box
         dialogueActive = true;
         dialogueBox.SetActive(true);
-
+        //starts the dialogue from zero
+        dialogueIndex = 0;
         //gets NPC details from the Event
         NPCinRange = (NPC)Params;
 

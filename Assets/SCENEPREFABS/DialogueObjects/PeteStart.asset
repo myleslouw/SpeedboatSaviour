@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Pete
   sentences:
-  - the pete
-  - Whomst
-  - the pete
-  - excellent
+  - Hey, I'm Pete, I can upgrade your boat
+  - Hi, Thats great!
+  - the boat will change when you speak to me, in the full game, you must reach a
+    milestone first
+  rewardAfter: 1

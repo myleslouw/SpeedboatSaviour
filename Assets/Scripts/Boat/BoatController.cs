@@ -6,12 +6,22 @@ public class BoatController : MonoBehaviour
 {
     Rigidbody rb;
     public Transform Director;
-    public float speed = 3;        //speed for game, 1 for testing for some reason
+    public float speed = 3;        //speed for game, 
     public AudioManager audioManager;
     public SoundObj soundObj;
     bool moving;
 
     private void Awake()
+    {
+        //rb = GetComponent<Rigidbody>();
+
+        ////sets the source of the sound to this game object
+        //soundObj.source = GetComponent<AudioSource>();
+        ////adds the sound to the list of sounds
+        //audioManager.AddSoundToList(soundObj);
+        
+    }
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
 
@@ -19,11 +29,6 @@ public class BoatController : MonoBehaviour
         soundObj.source = GetComponent<AudioSource>();
         //adds the sound to the list of sounds
         audioManager.AddSoundToList(soundObj);
-        
-    }
-    private void Start()
-    {
-
     }
     // Update is called once per frame
     void FixedUpdate()

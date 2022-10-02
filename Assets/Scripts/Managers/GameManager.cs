@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static int Level = 0;
     AudioManager audioManager;
-    GameObject DurabilitySlider;
+    public Slider DurabilitySlider;
     int currentBoat;
     [SerializeField] GameObject[] BoatSelection;
 
@@ -17,23 +18,35 @@ public class GameManager : MonoBehaviour
         audioManager = GetComponent<AudioManager>();
         audioManager.Play("WaveAmbience");
         currentBoat = 0;
+        SetBoat(currentBoat);
+
+        EventManager.OnDelegateEvent NewBoatDelegate = ChangeBoat;
+        EventManager.Instance.AddListener(EventManager.EVENT_TYPE.UPGRADE_BOAT, NewBoatDelegate);
     }
 
-    public static void StartGame()
+    public void ChangeBoat(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
     {
-        //changes scene from menu to game (Called in MenuManager)
-        SceneManager.LoadScene(1);
+        if (currentBoat < 2)
+        {
+            currentBoat++;
+        }
+        //sets prev boat to inactive
+        BoatSelection[currentBoat - 1].SetActive(false);
+        SetBoat(currentBoat);
     }
 
-    public static void ChangeLevel()
+    private void SetBoat(int currentBoatIndex)
     {
-        //loads the scene again with the relevant data for the level
-        SceneManager.LoadScene(1);
+        //gets slider from UI manager
+        DurabilitySlider = GetComponent<UIManager>().durabiltySlider;
+        //sets new boat to active
+        BoatSelection[currentBoatIndex].SetActive(true);
+        //sets the boats audio manager to the main audio manager
+        BoatSelection[currentBoatIndex].GetComponent<BoatController>().audioManager = audioManager;
+        //sets the durability slider to show the new boats durability
+        BoatSelection[currentBoatIndex].GetComponent<Boat>().durabiltySlider = DurabilitySlider;
 
-    }
-    public void ChangeBoat()
-    {
-        currentBoat++;
-        //set the durability and stuff in here
+        //follow the new boat
+        GetComponent<CineMachineSwitcher>().mainCam.Follow = BoatSelection[currentBoat].transform;
     }
 }

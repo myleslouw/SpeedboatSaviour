@@ -78,6 +78,6 @@ public class MilestoneManager : MonoBehaviour
         nextLevelXPRequirement = LevelRequirements[currentMilestone];
 
         //triggers the level up event for UI etc
-        EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.LEVEL_UP, this, null);
+        EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.LEVEL_UP, this, currentMilestone);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class MenuManager : MonoBehaviour
         if (Input.anyKeyDown)
         {
             //if the user presses any button or mouse button it will start the game from the menu at the beginning
-            GameManager.StartGame();
+            SceneManager.LoadScene(1);
         } 
     }
 }

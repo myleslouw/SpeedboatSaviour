@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI levelNum;
     [SerializeField] GameObject Milestone;
     AudioManager audioManager;
-
+    public Slider durabiltySlider;
 
     // Start is called before the first frame update
 

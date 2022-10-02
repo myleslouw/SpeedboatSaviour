@@ -17,6 +17,4 @@ public class NPC : MonoBehaviour
         npcName = dialogue.npcName;
     }
 
-
-
 }

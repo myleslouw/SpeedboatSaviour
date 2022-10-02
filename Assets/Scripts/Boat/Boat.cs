@@ -14,6 +14,7 @@ public class Boat : MonoBehaviour
 
     private void Start()
     {
+
         Durabilty = 100;
         Damage = 1;
     }

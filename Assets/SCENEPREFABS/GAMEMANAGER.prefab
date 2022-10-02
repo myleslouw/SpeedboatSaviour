@@ -51,7 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58e2c1616350a54cb8b4827c4ad7f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoatSelection: []
+  DurabilitySlider: {fileID: 0}
+  BoatSelection:
+  - {fileID: 541399489043998976, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
+  - {fileID: 5377188673320278492, guid: 2c7910398da62c04aa9b9391374f5bd5, type: 3}
+  - {fileID: 8288127876357367301, guid: 1ceb9ba7d4a47e244ac855e572dea4ea, type: 3}
 --- !u!114 &4179739594017379531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +131,7 @@ MonoBehaviour:
   generalWasteCounter: {fileID: 6912802051206201722}
   levelNum: {fileID: 2098918655428471433}
   Milestone: {fileID: 7734134506292067441}
+  durabiltySlider: {fileID: 8022749580672037903}
 --- !u!114 &4179739594017379525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +168,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4179739594017379535}
     m_Modifications:
+    - target: {fileID: 4662949591359105733, guid: e1870341e685cce4b949c95b8710d2d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4179739594017379529}
+    - target: {fileID: 4662949591359105733, guid: e1870341e685cce4b949c95b8710d2d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseMilestoneUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662949591359105733, guid: e1870341e685cce4b949c95b8710d2d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662949591359105733, guid: e1870341e685cce4b949c95b8710d2d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6450556231488831853, guid: e1870341e685cce4b949c95b8710d2d5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -297,6 +318,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8022749580672037903 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5178448593487679961, guid: e1870341e685cce4b949c95b8710d2d5, type: 3}
+  m_PrefabInstance: {fileID: 2921432853225579990}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2098918655428471433 stripped

@@ -7,5 +7,5 @@ public class DialogueObj : ScriptableObject
 {
     public string npcName;
     public string[] sentences;
-
+    public bool rewardAfter;
 }
