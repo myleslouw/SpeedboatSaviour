@@ -441,6 +441,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ENVIRONMENT
       objectReference: {fileID: 0}
+    - target: {fileID: 2663446296682701568, guid: c4d9024cea1f3a04b8b504353b1a1df9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2663446296682701569, guid: c4d9024cea1f3a04b8b504353b1a1df9, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1284,6 +1288,10 @@ PrefabInstance:
     - target: {fileID: 7765135542237843070, guid: 6839bb447c4b60a418768da198ccf3b9, type: 3}
       propertyPath: m_Name
       value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765135542237843070, guid: 6839bb447c4b60a418768da198ccf3b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6839bb447c4b60a418768da198ccf3b9, type: 3}
