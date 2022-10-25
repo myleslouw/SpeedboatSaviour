@@ -398,9 +398,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd7b2d36f03b1a40bb76e2c773c792c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Durabilty: 0
-  Damage: 0
+  Durabilty: 100
+  Damage: 2
+  Fuel: 100
+  FuelConsumption: 0.8
   durabiltySlider: {fileID: 0}
+  fuelSlider: {fileID: 0}
 --- !u!114 &9206538195415380845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +421,7 @@ MonoBehaviour:
   audioManager: {fileID: 0}
   soundObj: {fileID: 11400000, guid: 6fcfe1c012fd0c249b46e21fe04509d3, type: 2}
   propeller: {fileID: 1066820416641191605}
+  Boat: {fileID: 0}
 --- !u!114 &9206538195415380846
 MonoBehaviour:
   m_ObjectHideFlags: 0

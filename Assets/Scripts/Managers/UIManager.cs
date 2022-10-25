@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject Milestone;
     AudioManager audioManager;
     public Slider durabiltySlider;
+    public Slider fuelSlider;
 
     // Start is called before the first frame update
 

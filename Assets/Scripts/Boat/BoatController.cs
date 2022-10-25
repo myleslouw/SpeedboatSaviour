@@ -11,6 +11,7 @@ public class BoatController : MonoBehaviour
     public SoundObj soundObj;
     bool moving;
     public GameObject propeller;
+    public Boat Boat;
 
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class BoatController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        Boat = GetComponent<Boat>();
         //sets the source of the sound to this game object
         soundObj.source = GetComponent<AudioSource>();
         //adds the sound to the list of sounds
@@ -42,6 +43,7 @@ public class BoatController : MonoBehaviour
         }
 
         //adding force to the rigidbody at position in the front of the gameobject to give it the right feel
+       
         if (Input.GetKey(KeyCode.W))
         {
             MoveBoat(Vector3.forward);
@@ -74,6 +76,8 @@ public class BoatController : MonoBehaviour
             //if the boat isnt moving and a sound is playing, it will stop
             audioManager.StopPlaying("BoatSound");
         }
+
+     
     }
 
     private void MoveBoat(Vector3 direction)

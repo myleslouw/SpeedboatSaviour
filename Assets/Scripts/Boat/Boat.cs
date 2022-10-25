@@ -9,19 +9,23 @@ public class Boat : MonoBehaviour
     public int Durabilty;
     //the amount of damage the boat takes per tick
     public int Damage;
+    //the amount of fuel the boat can hold
+    public float Fuel;
+    //the amount of fuel the boat uses per tick
+    public float FuelConsumption;
 
     public Slider durabiltySlider;
 
+    public Slider fuelSlider;
+
     private void Start()
     {
-
-        Durabilty = 100;
-        Damage = 1;
     }
     // Update is called once per frame
     void Update()
     {
         durabiltySlider.value = Durabilty;
+        fuelSlider.value = Fuel;
     }
 
     public void TakeDamage()
@@ -30,6 +34,15 @@ public class Boat : MonoBehaviour
         if (Durabilty <= 0)
         {
             print("DEAD!");
+        }
+    }
+
+    public void UseFuel()
+    {
+        Fuel -= FuelConsumption;
+        if (Fuel <= 0)
+        {
+            print("OUT OF FUEL!!!");
         }
     }
 }
