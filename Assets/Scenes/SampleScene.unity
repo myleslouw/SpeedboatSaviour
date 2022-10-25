@@ -411,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 104678848826293894, guid: f190cac0eecba5a4f9b7947c38eaf27e, type: 3}
       propertyPath: m_Name
-      value: Main Camera
+      value: (UNUSED)Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 104678848826293894, guid: f190cac0eecba5a4f9b7947c38eaf27e, type: 3}
       propertyPath: m_IsActive
@@ -1001,6 +1001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PLAYER1
       objectReference: {fileID: 0}
+    - target: {fileID: 5377188673320278492, guid: 2c7910398da62c04aa9b9391374f5bd5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c7910398da62c04aa9b9391374f5bd5, type: 3}
 --- !u!1001 &5837814829941073700
@@ -1368,6 +1372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PLAYER0
       objectReference: {fileID: 0}
+    - target: {fileID: 541399489043998976, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 811217643434440946, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: audioManager
       value: 
@@ -1501,9 +1509,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1395838464772160915, guid: 1ceb9ba7d4a47e244ac855e572dea4ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.89446294
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395838464772160915, guid: 1ceb9ba7d4a47e244ac855e572dea4ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395838464772160915, guid: 1ceb9ba7d4a47e244ac855e572dea4ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.44714206
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395838464772160915, guid: 1ceb9ba7d4a47e244ac855e572dea4ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395838464772160915, guid: 1ceb9ba7d4a47e244ac855e572dea4ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -53.121
+      objectReference: {fileID: 0}
     - target: {fileID: 8288127876357367301, guid: 1ceb9ba7d4a47e244ac855e572dea4ea, type: 3}
       propertyPath: m_Name
       value: PLAYER2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288127876357367301, guid: 1ceb9ba7d4a47e244ac855e572dea4ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8669016728429886655, guid: 1ceb9ba7d4a47e244ac855e572dea4ea, type: 3}
       propertyPath: m_RootOrder

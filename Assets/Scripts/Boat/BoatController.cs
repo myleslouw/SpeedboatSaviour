@@ -10,6 +10,7 @@ public class BoatController : MonoBehaviour
     public AudioManager audioManager;
     public SoundObj soundObj;
     bool moving;
+    public GameObject propeller;
 
     private void Awake()
     {
@@ -43,26 +44,22 @@ public class BoatController : MonoBehaviour
         //adding force to the rigidbody at position in the front of the gameobject to give it the right feel
         if (Input.GetKey(KeyCode.W))
         {
-            moving = true;
-            rb.AddForceAtPosition(Vector3.forward * speed, Director.position, ForceMode.Force);
+            MoveBoat(Vector3.forward);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            moving = true;
-            rb.AddForceAtPosition(Vector3.back * speed, Director.position, ForceMode.Force);
+            MoveBoat(Vector3.back);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            moving = true;
-            rb.AddForceAtPosition(Vector3.left * speed, Director.position, ForceMode.Force);
+            MoveBoat(Vector3.left);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            moving = true;
-            rb.AddForceAtPosition(Vector3.right * speed, Director.position, ForceMode.Force);
+            MoveBoat(Vector3.right);
         }
 
         //boat sounds
@@ -76,6 +73,18 @@ public class BoatController : MonoBehaviour
         {
             //if the boat isnt moving and a sound is playing, it will stop
             audioManager.StopPlaying("BoatSound");
+        }
+    }
+
+    private void MoveBoat(Vector3 direction)
+    {
+        moving = true;
+        rb.AddForceAtPosition(direction * speed, Director.position, ForceMode.Force);
+
+        //spin the propeller if it has one
+        if (propeller != null)
+        {
+            propeller.transform.Rotate(new Vector3(0, 30, 0));
         }
     }
 }

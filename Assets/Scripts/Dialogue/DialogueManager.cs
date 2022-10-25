@@ -33,28 +33,33 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (NPCinRange != null)
         {
-            dialogueIndex++;
+            //if there is an NPC in range
 
-            if (numSentences == dialogueIndex)
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                //DIALOGUE FINISHED
-                //if all the sentences have been said
-                if (NPCinRange.dialogue.rewardAfter)
+                dialogueIndex++;
+
+                if (numSentences == dialogueIndex)
                 {
-                    //if there is a reward from completing the dialogue
-                    //rewards will be in a dictionary and the a key will be used from the OBj to the dictionary
-                    EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.UPGRADE_BOAT, this, null);
-                }
+                    //DIALOGUE FINISHED
+                    //if all the sentences have been said
+                    if (NPCinRange.dialogue.rewardAfter)
+                    {
+                        //if there is a reward from completing the dialogue
+                        //rewards will be in a dictionary and the a key will be used from the OBj to the dictionary
+                        EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.UPGRADE_BOAT, this, null);
+                    }
 
-                //stop the dialogue and undo 
-                EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_LEAVE, this, null);
-            }
-            else
-            {
-                //say the dialogue
-                NextSentence(dialogueIndex);
+                    //stop the dialogue and undo 
+                    EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_LEAVE, this, null);
+                }
+                else
+                {
+                    //say the dialogue
+                    NextSentence(dialogueIndex);
+                }
             }
         }
     }
@@ -82,9 +87,10 @@ public class DialogueManager : MonoBehaviour
         dialogueActive = false;
         dialogueBox.SetActive(false);
 
-        //NPC ALWAYS Speaks first
         currentSpeaker.text = null;
         currentText.text = null;
+
+        dialogueIndex = 0;
     }
 
     private void SaySentence(string speakerName, string sentence)
@@ -96,8 +102,11 @@ public class DialogueManager : MonoBehaviour
 
     private void NextSentence(int currentIndex)
     {
-        //if the index is odd, the player must speak
-        string speaker = currentIndex % 2 == 0 ? NPCinRange.npcName : playerName;
-        SaySentence(speaker, NPCinRange.dialogue.sentences[currentIndex]);
+        if (NPCinRange != null)
+        {
+            //if the index is odd, the player must speak
+            string speaker = currentIndex % 2 == 0 ? NPCinRange.npcName : playerName;
+            SaySentence(speaker, NPCinRange.dialogue.sentences[currentIndex]);
+        }
     }
 }

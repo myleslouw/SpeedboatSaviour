@@ -15,10 +15,18 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)
+        //if its in the starting menu screen
+        if ((Input.anyKeyDown) && SceneManager.GetActiveScene().name == "Menu")
         {
             //if the user presses any button or mouse button it will start the game from the menu at the beginning
             SceneManager.LoadScene(1);
-        } 
+        }
+
+        //if its in the death screen
+        if ((Input.GetKeyDown(KeyCode.Space)) && SceneManager.GetActiveScene().name == "DeadScreen")
+        {
+            //if the user presses any button or mouse button it will start the game from the menu at the beginning
+            SceneManager.LoadScene(0);
+        }
     }
 }
