@@ -13,6 +13,15 @@ public class BoatController : MonoBehaviour
     public GameObject propeller;
     public Boat Boat;
 
+
+    //OLD BOAT HEIGHT WAS 3.9 for row boat
+    //3.689 for sail
+    //3.652 for speedboat
+
+
+
+    //NEW BOAT HEIGHT 0.7
+
     private void Awake()
     {
         //rb = GetComponent<Rigidbody>();
@@ -43,7 +52,8 @@ public class BoatController : MonoBehaviour
         }
 
         //adding force to the rigidbody at position in the front of the gameobject to give it the right feel
-       
+
+     
         if (Input.GetKey(KeyCode.W))
         {
             MoveBoat(Vector3.forward);
@@ -77,7 +87,10 @@ public class BoatController : MonoBehaviour
             audioManager.StopPlaying("BoatSound");
         }
 
-     
+        if (moving)
+        {
+            Boat.UseFuel();
+        }
     }
 
     private void MoveBoat(Vector3 direction)

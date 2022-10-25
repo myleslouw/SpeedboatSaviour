@@ -714,7 +714,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.901
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -812,8 +812,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Durabilty: 150
   Damage: 1
-  Fuel: 120
-  FuelConsumption: 0.5
+  Fuel: 100
+  FuelConsumption: 0.1
   durabiltySlider: {fileID: 0}
   fuelSlider: {fileID: 0}
 --- !u!114 &5070759929775699746

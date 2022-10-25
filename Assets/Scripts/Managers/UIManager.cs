@@ -91,5 +91,7 @@ public class UIManager : MonoBehaviour
     public void CloseMilestoneUI()
     {
         Milestone.SetActive(false);
+
+        audioManager.Play("WaveAmbience");
     }
 }
