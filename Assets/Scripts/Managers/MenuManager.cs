@@ -20,6 +20,7 @@ public class MenuManager : MonoBehaviour
         {
             //if the user presses any button or mouse button it will start the game from the menu at the beginning
             SceneManager.LoadScene(1);
+            EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.GAME_START, this, null);
         }
 
         //if its in the death screen

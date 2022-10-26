@@ -58,11 +58,21 @@ public class PlayerScript : MonoBehaviour
     //TRIGGER WHILE TOUCHING
     private void OnTriggerStay(Collider other)
     {
+        print("Stay collision");
+
         if (other.gameObject.GetComponent<Hazard>())
         {
            
             //if the player touches a hazard, it will damage WHILE the player touches it
             GetComponent<Boat>().TakeDamage();
+        }
+
+        if (other.gameObject.GetComponent<FuelRefill>())
+        {
+            print("Collided with Refill");
+            //if the player collides with a Fuel game object, it will refuel the current boat WHILE it touches the refill point
+            print("Sent: " + other.gameObject.GetComponent<FuelRefill>().RefillAmount);
+            EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.REFUEL, this, other.gameObject.GetComponent<FuelRefill>().RefillAmount);
         }
     }
 }

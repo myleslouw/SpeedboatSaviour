@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Boat : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class Boat : MonoBehaviour
 
     private void Start()
     {
+        EventManager.OnDelegateEvent RefuelDelegate = RefuelBoat;
+        EventManager.Instance.AddListener(EventManager.EVENT_TYPE.REFUEL, RefuelDelegate);
     }
     // Update is called once per frame
     void Update()
@@ -33,7 +36,8 @@ public class Boat : MonoBehaviour
         Durabilty -= Damage;
         if (Durabilty <= 0)
         {
-            print("DEAD!");
+            EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.GAME_END, this, null);
+            SceneManager.LoadScene(2);
         }
     }
 
@@ -43,6 +47,20 @@ public class Boat : MonoBehaviour
         if (Fuel <= 0)
         {
             print("OUT OF FUEL!!!");
+        }
+    }
+
+    public void RefuelBoat(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
+    {
+        print("REFUELING...");
+        //get the fuel object from the event
+        int fuelRefill = (int)Params;
+        print("Amount recieved: " + fuelRefill);
+        //add the refill amount to the boats current fuel if its not full
+        if (!(Fuel >= 100))
+        {
+            Fuel += fuelRefill;
+
         }
     }
 }

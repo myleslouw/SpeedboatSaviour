@@ -22,8 +22,10 @@ public class GameManager : MonoBehaviour
         currentBoat = 0;
         SetBoat(currentBoat);
 
+        EventManager.OnDelegateEvent GameStartBoatDelegate = GameStartBoat; 
         EventManager.OnDelegateEvent NewBoatDelegate = ChangeBoat;
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.UPGRADE_BOAT, NewBoatDelegate);
+        EventManager.Instance.AddListener(EventManager.EVENT_TYPE.GAME_START, GameStartBoatDelegate);
     }
 
     public void ChangeBoat(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
@@ -55,5 +57,10 @@ public class GameManager : MonoBehaviour
 
         //follow the new boat
         GetComponent<CineMachineSwitcher>().mainCam.Follow = BoatSelection[currentBoat].transform;
+    }
+
+    public void GameStartBoat(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
+    {
+        SetBoat(currentBoat);
     }
 }

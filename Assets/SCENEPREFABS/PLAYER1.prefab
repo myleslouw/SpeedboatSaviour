@@ -602,7 +602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4743500107728683878
 Transform:
   m_ObjectHideFlags: 0
@@ -698,10 +698,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.06273228
+  m_Radius: 0.02
   m_Height: 0.16329437
   m_Direction: 1
-  m_Center: {x: 0, y: -0.07463214, z: 0.06260587}
+  m_Center: {x: 0, y: -0.075, z: 0.02}
 --- !u!82 &5070759929775699773
 AudioSource:
   m_ObjectHideFlags: 0

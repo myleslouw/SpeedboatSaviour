@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     AudioManager audioManager;
     public Slider durabiltySlider;
     public Slider fuelSlider;
+    [SerializeField] GameObject InventoryUI;
+    [SerializeField] GameObject LevelUI;
+
 
     // Start is called before the first frame update
 
@@ -30,9 +33,13 @@ public class UIManager : MonoBehaviour
         EventManager.OnDelegateEvent IncrementDelegate = IncrementPollutantUI;
         EventManager.OnDelegateEvent ResetDelegate = ResetPollutantUI;
         EventManager.OnDelegateEvent LevelUpDelegate = LevelUpUI;
+        EventManager.OnDelegateEvent GameStartDelegate = GameStartUI;
+        EventManager.OnDelegateEvent GameOverDelegate = GameOverUI;
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.PICKUP_UI, IncrementDelegate);
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.RECYCLE_UI, ResetDelegate);
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.LEVEL_UP, LevelUpDelegate);
+        EventManager.Instance.AddListener(EventManager.EVENT_TYPE.GAME_START, GameStartDelegate);
+        EventManager.Instance.AddListener(EventManager.EVENT_TYPE.GAME_END, GameOverDelegate);
     }
     private void CreateCounters()
     {
@@ -93,5 +100,25 @@ public class UIManager : MonoBehaviour
         Milestone.SetActive(false);
 
         audioManager.Play("WaveAmbience");
+    }
+
+    private void GameStartUI(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
+    {
+        //turns on some UI components  on restart so they show in the  scene
+        durabiltySlider.gameObject.SetActive(true);
+        fuelSlider.gameObject.SetActive(true);
+        LevelUI.SetActive(true);
+        InventoryUI.SetActive(true);
+
+    }
+
+    private void GameOverUI(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
+    {
+        //turns off some UI components after death so they dont show in the next scene
+        durabiltySlider.gameObject.SetActive(false);
+        fuelSlider.gameObject.SetActive(false);
+        LevelUI.SetActive(false);
+        InventoryUI.SetActive(false);
+
     }
 }
