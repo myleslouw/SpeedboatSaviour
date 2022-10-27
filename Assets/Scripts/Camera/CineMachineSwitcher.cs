@@ -23,34 +23,23 @@ public class CineMachineSwitcher : MonoBehaviour
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.NPC_LEAVE, RevertNPCCamDelegate);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-      
-    }
-
-    private void CameraNPC(Transform npcTransform)
+    private void CameraNPC()
     {
         //focuses on the NPC
-        //npcCam.gameObject.SetActive(true);
-        //mainCam.Priority = offCam;
-        //npcCam.Priority = mainPriority;
-        //mainCam.gameObject.SetActive(false);
+        npcCam.gameObject.SetActive(true);
+        mainCam.Priority = offCam;
+        npcCam.Priority = mainPriority;
+        mainCam.gameObject.SetActive(false);
 
-        mainCam.Follow = null;
-        mainCam.LookAt = npcTransform;
     }
 
-    private void CameraPlayer(Transform playerTransform)
+    private void CameraPlayer()
     {
         //focuses the camera on the player
-        //mainCam.gameObject.SetActive(true);
-        //mainCam.Priority = mainPriority;
-        //npcCam.Priority = offCam;
-        //npcCam.gameObject.SetActive(false);
-
-        mainCam.Follow = null;
-        mainCam.LookAt = playerTransform;
+        mainCam.gameObject.SetActive(true);
+        mainCam.Priority = mainPriority;
+        npcCam.Priority = offCam;
+        npcCam.gameObject.SetActive(false);
     }
 
     public void SetNPCCam(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
@@ -60,16 +49,14 @@ public class CineMachineSwitcher : MonoBehaviour
         //sets the npc cam to the one in range
         npcCam = NPCinRange.npcCamera;
         //changes the cam to show the npc
-        CameraNPC(NPCinRange.transform);
+        CameraNPC();
     }
 
     public void RevertNPCCam(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
     {
         //onces the player leaves the NPC speakable area
-        //gets the players transform from the event and makes the camera look at it
-        Transform playerTransfrom = (Transform)Params;
-        //focuses on the player
-        CameraPlayer(playerTransfrom);
 
+        //focuses on the player
+        CameraPlayer();
     }
 }

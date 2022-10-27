@@ -58,7 +58,6 @@ public class PlayerScript : MonoBehaviour
     //TRIGGER WHILE TOUCHING
     private void OnTriggerStay(Collider other)
     {
-        print("Stay collision");
 
         if (other.gameObject.GetComponent<Hazard>())
         {
