@@ -56,22 +56,26 @@ public class BoatController : MonoBehaviour
      
         if (Input.GetKey(KeyCode.W))
         {
-            MoveBoat(Vector3.forward);
+            //move forward
+            MoveBoat(-transform.up);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            MoveBoat(Vector3.back);
+            //move back
+            MoveBoat(transform.up);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            MoveBoat(Vector3.left);
+            //turn left
+            TurnBoat(-transform.right);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            MoveBoat(Vector3.right);
+            //turn right
+            TurnBoat(transform.right);
         }
 
         //boat sounds
@@ -95,8 +99,26 @@ public class BoatController : MonoBehaviour
 
     private void MoveBoat(Vector3 direction)
     {
+
         moving = true;
+
         rb.AddForceAtPosition(direction * speed, Director.position, ForceMode.Force);
+
+
+        //spin the propeller if it has one
+        if (propeller != null)
+        {
+            propeller.transform.Rotate(new Vector3(0, 30, 0));
+        }
+    }
+
+    private void TurnBoat(Vector3 direction)
+    {
+
+        //same as the moving but it is half the speed for turning
+        moving = true;
+
+        rb.AddForceAtPosition(direction * speed/2, Director.position, ForceMode.Force);
 
         //spin the propeller if it has one
         if (propeller != null)

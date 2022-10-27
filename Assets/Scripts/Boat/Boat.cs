@@ -29,6 +29,7 @@ public class Boat : MonoBehaviour
     {
         durabiltySlider.value = Durabilty;
         fuelSlider.value = Fuel;
+
     }
 
     public void TakeDamage()

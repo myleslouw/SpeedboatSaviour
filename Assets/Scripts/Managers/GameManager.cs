@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
 
         //follow the new boat
         GetComponent<CineMachineSwitcher>().mainCam.Follow = BoatSelection[currentBoat].transform;
+        GetComponent<CineMachineSwitcher>().mainCam.LookAt = BoatSelection[currentBoat].transform;
     }
 
     public void GameStartBoat(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)

@@ -6,7 +6,8 @@ using UnityEngine;
 public class CineMachineSwitcher : MonoBehaviour
 {
     Animator animator;
-    public CinemachineVirtualCamera mainCam, npcCam;
+    public CinemachineVirtualCamera npcCam;
+    public CinemachineFreeLook mainCam;
 
     //higher priority cam will be show
     private int mainPriority = 10, offCam = 1;

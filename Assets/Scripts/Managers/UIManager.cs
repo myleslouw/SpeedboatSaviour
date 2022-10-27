@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject InventoryUI;
     [SerializeField] GameObject LevelUI;
 
-
     // Start is called before the first frame update
 
     private void Start()
@@ -41,6 +40,7 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.GAME_START, GameStartDelegate);
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.GAME_END, GameOverDelegate);
     }
+
     private void CreateCounters()
     {
         //create the inv dictionary

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StylisedWater
+  m_Name: 2ndStylisedWater
   m_Shader: {fileID: -6465566751694194690, guid: 9d265b5048c9f0540a25a8d287d5bcf4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -124,7 +124,7 @@ Material:
     - Color_4f9f4f7d46434529bd17efc6c3f731a0: {r: 0, g: 0.8272922, b: 1, a: 0.15686275}
     - Color_addae828290a43dc87e9e93fae87fbe9: {r: 1, g: 1, b: 1, a: 1}
     - DeepWater: {r: 0, g: 0.48622957, b: 0.7830189, a: 0.40392157}
-    - ShallowWater: {r: 0, g: 0.721844, b: 0.9339623, a: 0.38431373}
+    - ShallowWater: {r: 0, g: 0.72156864, b: 0.93333334, a: 0.39215687}
     - Vector2_266002cf1714405c81287b34d887eb63: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_38d67d848262470dbce8425d7f053b39: {r: 3, g: 3, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
