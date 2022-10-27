@@ -51,7 +51,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.gameObject.GetComponent<NPC>())
         {
-            EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_LEAVE, this, null);
+            EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_LEAVE, this, this.transform);
         }
     }
 

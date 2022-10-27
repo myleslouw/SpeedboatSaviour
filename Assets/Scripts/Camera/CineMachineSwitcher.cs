@@ -26,38 +26,31 @@ public class CineMachineSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Equals))
-        {
-            mainCam.gameObject.SetActive(true);
-            mainCam.Priority = mainPriority;
-            npcCam.Priority = offCam;
-            npcCam.gameObject.SetActive(false);
-        }
-        if (Input.GetKeyDown(KeyCode.Minus))
-        {
-            npcCam.gameObject.SetActive(true);
-            mainCam.Priority = offCam;
-            npcCam.Priority = mainPriority;
-            mainCam.gameObject.SetActive(false);
-        }
+      
     }
 
-    private void CameraNPC()
+    private void CameraNPC(Transform npcTransform)
     {
         //focuses on the NPC
-        npcCam.gameObject.SetActive(true);
-        mainCam.Priority = offCam;
-        npcCam.Priority = mainPriority;
-        mainCam.gameObject.SetActive(false);
+        //npcCam.gameObject.SetActive(true);
+        //mainCam.Priority = offCam;
+        //npcCam.Priority = mainPriority;
+        //mainCam.gameObject.SetActive(false);
+
+        mainCam.Follow = null;
+        mainCam.LookAt = npcTransform;
     }
 
-    private void CameraPlayer()
+    private void CameraPlayer(Transform playerTransform)
     {
         //focuses the camera on the player
-        mainCam.gameObject.SetActive(true);
-        mainCam.Priority = mainPriority;
-        npcCam.Priority = offCam;
-        npcCam.gameObject.SetActive(false);
+        //mainCam.gameObject.SetActive(true);
+        //mainCam.Priority = mainPriority;
+        //npcCam.Priority = offCam;
+        //npcCam.gameObject.SetActive(false);
+
+        mainCam.Follow = null;
+        mainCam.LookAt = playerTransform;
     }
 
     public void SetNPCCam(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
@@ -67,15 +60,16 @@ public class CineMachineSwitcher : MonoBehaviour
         //sets the npc cam to the one in range
         npcCam = NPCinRange.npcCamera;
         //changes the cam to show the npc
-        CameraNPC();
+        CameraNPC(NPCinRange.transform);
     }
 
     public void RevertNPCCam(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
     {
         //onces the player leaves the NPC speakable area
-
+        //gets the players transform from the event and makes the camera look at it
+        Transform playerTransfrom = (Transform)Params;
         //focuses on the player
-        CameraPlayer();
+        CameraPlayer(playerTransfrom);
 
     }
 }
