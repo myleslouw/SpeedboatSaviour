@@ -45,7 +45,6 @@ public class Boat : MonoBehaviour
 
         //gets all the glass items in an array
         onBoardGlassArray = onBoardGlass.GetComponentsInChildren<Transform>();
-
         //gets the plastic bottles from within the child
         onBoardPlasticBottles = onBoardPlastic.GetChild(0).GetComponentsInChildren<Transform>();
 
@@ -94,7 +93,16 @@ public class Boat : MonoBehaviour
         {
             item.gameObject.SetActive(false);
         }
-    }
+
+        //make sure the parent objects are active
+        onBoardGlass.gameObject.SetActive(true);
+        onBoardPlastic.GetChild(0).gameObject.SetActive(true);
+        onBoardPlastic.GetChild(1).gameObject.SetActive(true);
+        onBoardGeneralWaste.GetChild(0).gameObject.SetActive(true);
+        onBoardGeneralWaste.GetChild(1).gameObject.SetActive(true);
+        onBoardGeneralWaste.GetChild(2).gameObject.SetActive(true);
+        onBoardGeneralWaste.GetChild(3).gameObject.SetActive(true);
+}
 
     // Update is called once per frame
     void Update()
