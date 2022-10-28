@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pollutantObj: {fileID: 11400000, guid: eede87377458afb4cabff88445d9a9a2, type: 2}
+  subType: 1
 --- !u!1001 &7763854202291911635
 PrefabInstance:
   m_ObjectHideFlags: 0

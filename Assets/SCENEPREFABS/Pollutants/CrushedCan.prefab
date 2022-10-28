@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pollutantObj: {fileID: 11400000, guid: 66fc488b7f794c040a35be14b357a641, type: 2}
+  subType: 2
 --- !u!64 &5853014242909480659
 MeshCollider:
   m_ObjectHideFlags: 0

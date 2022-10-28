@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pollutant : MonoBehaviour
 {
     public PollutantObject pollutantObj;        //the pollutant scriptable object
-    
+    public PollutantType.subType subType;
     
     void Start()
     {   //GW must be sideways at start others dont use this
