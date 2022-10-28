@@ -6,6 +6,7 @@ public class Pollutant : MonoBehaviour
 {
     public PollutantObject pollutantObj;        //the pollutant scriptable object
     
+    
     void Start()
     {   //GW must be sideways at start others dont use this
         transform.Rotate(pollutantObj.startOffset);

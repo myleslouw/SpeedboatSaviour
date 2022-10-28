@@ -81,8 +81,7 @@ public class PollutantManager : MonoBehaviour
         //creates a pollutant
         Pollutant spawnedObj = new Pollutant();
         Vector2 newPosition = (Random.insideUnitCircle * 10) + new Vector2(SpawnPoint.position.x, SpawnPoint.position.z);
-        spawnedObj = Instantiate(PollutantOptions[rand.Next(0,3)], new Vector3(newPosition.x , WATERHEIGHT, newPosition.y), Quaternion.identity);
-        //pollutants.Add(spawnedObj);
+        spawnedObj = Instantiate(PollutantOptions[rand.Next(0,PollutantOptions.Length)], new Vector3(newPosition.x , WATERHEIGHT, newPosition.y), Quaternion.identity);
     }
 
 }

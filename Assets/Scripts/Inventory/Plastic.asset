@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Plastic
   m_EditorClassIdentifier: 
   pollutantType: 1
-  pollutantReward: 2
-  pollutantRotation: {x: 0, y: 0, z: 0}
+  pollutantRotation: {x: 0, y: 0.1, z: 0}
   startOffset: {x: 0, y: 0, z: 0}
