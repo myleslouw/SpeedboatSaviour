@@ -78,6 +78,12 @@ public class BoatController : MonoBehaviour
             TurnBoat(transform.right);
         }
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            //speed boost?
+
+        }
+
         //boat sounds
         if (moving && !audioManager.getSoundStatus("BoatSound"))
         {

@@ -9,15 +9,14 @@ public class PollutantManager : MonoBehaviour
     [SerializeField] Pollutant[] PollutantOptions = new Pollutant[2];
     [SerializeField] Hazard[] HazardOptions = new Hazard[1];
 
-    const float WATERHEIGHT = 4.1f; //height of water so pollutants look like theyre floating
-    const float newWATERHEIGHT = 0.88f;
-    const int SpawnSpace = 20;
-    const float oilHeight = 0.91f;      //the height the oil will be (just below water)
+    const float WATERHEIGHT = 0.7f;  //height of water so pollutants look like theyre floating
+    const float oilHeight = 0.45f;      //the height the oil will be (just below water)
 
     private int currentLevelNum;
 
     System.Random rand = new System.Random();
 
+    public Transform SpawnPoint;
    
     //dictionary to store the levelnum as key and an oil item which holds an array of oil positions and types
     Dictionary<int, OilItem> oilSpills = new Dictionary<int, OilItem>()
@@ -81,7 +80,8 @@ public class PollutantManager : MonoBehaviour
     {
         //creates a pollutant
         Pollutant spawnedObj = new Pollutant();
-        spawnedObj = Instantiate(PollutantOptions[rand.Next(0,3)], new Vector3(rand.Next(-14,15), newWATERHEIGHT, rand.Next(-19,14)), Quaternion.identity);
+        Vector2 newPosition = (Random.insideUnitCircle * 10) + new Vector2(SpawnPoint.position.x, SpawnPoint.position.z);
+        spawnedObj = Instantiate(PollutantOptions[rand.Next(0,3)], new Vector3(newPosition.x , WATERHEIGHT, newPosition.y), Quaternion.identity);
         //pollutants.Add(spawnedObj);
     }
 

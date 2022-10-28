@@ -56,7 +56,6 @@ public class Boat : MonoBehaviour
         print("REFUELING...");
         //get the fuel object from the event
         int fuelRefill = (int)Params;
-        print("Amount recieved: " + fuelRefill);
         //add the refill amount to the boats current fuel if its not full
         if (!(Fuel >= 100))
         {

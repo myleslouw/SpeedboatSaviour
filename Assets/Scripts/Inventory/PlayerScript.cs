@@ -68,9 +68,7 @@ public class PlayerScript : MonoBehaviour
 
         if (other.gameObject.GetComponent<FuelRefill>())
         {
-            print("Collided with Refill");
             //if the player collides with a Fuel game object, it will refuel the current boat WHILE it touches the refill point
-            print("Sent: " + other.gameObject.GetComponent<FuelRefill>().RefillAmount);
             EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.REFUEL, this, other.gameObject.GetComponent<FuelRefill>().RefillAmount);
         }
     }
