@@ -10,7 +10,7 @@ public class PollutantManager : MonoBehaviour
     [SerializeField] Hazard[] HazardOptions = new Hazard[1];
 
     const float WATERHEIGHT = 0.7f;  //height of water so pollutants look like theyre floating
-    const float oilHeight = 0.45f;      //the height the oil will be (just below water)
+    const float oilHeight = 0.3f;      //the height the oil will be (just below water)
 
     private int currentLevelNum;
 
