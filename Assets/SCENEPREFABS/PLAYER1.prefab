@@ -35,6 +35,36 @@ Transform:
   m_Father: {fileID: 3564105755384308171}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1411894478448134992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8755646096304917452}
+  m_Layer: 0
+  m_Name: CameraTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8755646096304917452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411894478448134992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.0594, z: 0.0318}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4743500107728683878}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1847508189386539898
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +132,7 @@ Transform:
   - {fileID: 2756285857398610015}
   - {fileID: 8663448151354114249}
   m_Father: {fileID: 4743500107728683878}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4581241827852465607
 GameObject:
@@ -200,7 +230,7 @@ Transform:
   m_LocalScale: {x: 0.015999999, y: 0.040000003, z: 0.033333335}
   m_Children: []
   m_Father: {fileID: 4743500107728683878}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &5070759929360376648
 TrailRenderer:
@@ -383,7 +413,7 @@ Transform:
   m_LocalScale: {x: 0.015999999, y: 0.040000003, z: 0.033333335}
   m_Children: []
   m_Father: {fileID: 4743500107728683878}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &5070759929883362092
 TrailRenderer:
@@ -596,7 +626,7 @@ Transform:
   m_LocalScale: {x: 0.015999999, y: 0.040000003, z: 0.033333335}
   m_Children: []
   m_Father: {fileID: 4743500107728683878}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &5070759930576406949
 TrailRenderer:
@@ -786,6 +816,7 @@ Transform:
   m_LocalScale: {x: 25, y: 20, z: 30}
   m_Children:
   - {fileID: 5070759930236270484}
+  - {fileID: 8755646096304917452}
   - {fileID: 5070759930576406948}
   - {fileID: 5070759929360376651}
   - {fileID: 5070759929883362095}
@@ -986,8 +1017,13 @@ MonoBehaviour:
   Damage: 1
   Fuel: 100
   FuelConsumption: 0.1
+  cameraTarget: {fileID: 1411894478448134992}
   durabiltySlider: {fileID: 0}
   fuelSlider: {fileID: 0}
+  OrbitDetails:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
   onBoardGlass: {fileID: 2756285857398610015}
   onBoardGlassArray: []
   onBoardPlastic: {fileID: 3564105755384308171}

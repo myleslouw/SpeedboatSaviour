@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         currentBoat = 0;
         audioManager = GetComponent<AudioManager>();
         audioManager.Play("WaveAmbience");
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour
         //follow the new boat
         //EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_LEAVE, this, null);
 
-        GetComponent<CineMachineSwitcher>().mainCam.Follow = BoatSelection[currentBoat].transform;
+        GetComponent<CineMachineSwitcher>().mainCam.Follow = BoatSelection[currentBoat].GetComponent<Boat>().cameraTarget.transform;
         GetComponent<CineMachineSwitcher>().mainCam.LookAt = BoatSelection[currentBoat].transform;
     }
 

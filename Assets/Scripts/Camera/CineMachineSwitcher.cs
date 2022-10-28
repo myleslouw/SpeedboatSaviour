@@ -28,6 +28,8 @@ public class CineMachineSwitcher : MonoBehaviour
         //focuses on the NPC
         npcCam.gameObject.SetActive(true);
         mainCam.Priority = offCam;
+        CinemachineFreeLook.Orbit[] newOrbit = mainCam.m_Orbits;
+
         npcCam.Priority = mainPriority;
         mainCam.gameObject.SetActive(false);
 
@@ -48,7 +50,7 @@ public class CineMachineSwitcher : MonoBehaviour
         NPC NPCinRange = (NPC)Params;
         //sets the npc cam to the one in range
         npcCam = NPCinRange.npcCamera;
-        //changes the cam to show the npc
+        //changes the cam to show the npcw
         CameraNPC();
     }
 

@@ -15,9 +15,13 @@ public class Boat : MonoBehaviour
     //the amount of fuel the boat uses per tick
     public float FuelConsumption;
 
+    public GameObject cameraTarget;
+
     public Slider durabiltySlider;
 
     public Slider fuelSlider;
+
+    public Vector2[] OrbitDetails = new Vector2[3];     //top middle and bottom
 
     public Transform onBoardGlass;
     public Transform[] onBoardGlassArray;
@@ -42,7 +46,6 @@ public class Boat : MonoBehaviour
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.REFUEL, RefuelDelegate);
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.POLLUTANT_PICKUP, PickupDelegate);
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.RECYCLE_POLLUTANT, ClearBoatDelegate);
-
 
         //ALL THE POLLUTANT POSITIONS IN THE BOAT LOADED INTO ARRAY
         //gets all the glass items in an array

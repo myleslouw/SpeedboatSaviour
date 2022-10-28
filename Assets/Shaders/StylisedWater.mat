@@ -123,8 +123,8 @@ Material:
     m_Colors:
     - Color_4f9f4f7d46434529bd17efc6c3f731a0: {r: 0, g: 0.8272922, b: 1, a: 0.15686275}
     - Color_addae828290a43dc87e9e93fae87fbe9: {r: 1, g: 1, b: 1, a: 1}
-    - DeepWater: {r: 0.06132078, g: 0.6433018, b: 1, a: 0.24705882}
-    - ShallowWater: {r: 0, g: 0.721844, b: 0.9339623, a: 0.6313726}
+    - DeepWater: {r: 0.18244925, g: 0.5817237, b: 0.9433962, a: 0.2784314}
+    - ShallowWater: {r: 0.18195976, g: 0.7151551, b: 0.8207547, a: 0.4392157}
     - Vector2_266002cf1714405c81287b34d887eb63: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_38d67d848262470dbce8425d7f053b39: {r: 3, g: 3, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
