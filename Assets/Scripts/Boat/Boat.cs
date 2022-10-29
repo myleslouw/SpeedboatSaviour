@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class Boat : MonoBehaviour
 {
     //the durability of the boat
@@ -20,8 +21,6 @@ public class Boat : MonoBehaviour
     public Slider durabiltySlider;
 
     public Slider fuelSlider;
-
-    public Vector2[] OrbitDetails = new Vector2[3];     //top middle and bottom
 
     public Transform onBoardGlass;
     public Transform[] onBoardGlassArray;

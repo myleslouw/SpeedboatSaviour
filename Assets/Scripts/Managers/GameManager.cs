@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -56,11 +57,6 @@ public class GameManager : MonoBehaviour
         BoatSelection[currentBoatIndex].GetComponent<Boat>().fuelSlider = FuelSlider;
 
 
-        //follow the new boat
-        //EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_LEAVE, this, null);
-
-        GetComponent<CineMachineSwitcher>().mainCam.Follow = BoatSelection[currentBoat].GetComponent<Boat>().cameraTarget.transform;
-        GetComponent<CineMachineSwitcher>().mainCam.LookAt = BoatSelection[currentBoat].transform;
     }
 
     public void GameStartBoat(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
