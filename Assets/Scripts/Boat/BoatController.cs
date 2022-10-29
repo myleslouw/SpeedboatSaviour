@@ -8,7 +8,7 @@ public class BoatController : MonoBehaviour
     public Transform Director;
     public float speed = 3;        //speed for game, 
     public AudioManager audioManager;
-    public SoundObj soundObj;
+    public SoundObj soundObj, impactSoundObj;
     bool moving;
     public GameObject propeller;
     public Boat Boat;
@@ -38,8 +38,10 @@ public class BoatController : MonoBehaviour
         Boat = GetComponent<Boat>();
         //sets the source of the sound to this game object
         soundObj.source = GetComponent<AudioSource>();
+        impactSoundObj.source = GetComponent<AudioSource>();
         //adds the sound to the list of sounds
         audioManager.AddSoundToList(soundObj);
+        audioManager.AddSoundToList(impactSoundObj);
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -131,5 +133,13 @@ public class BoatController : MonoBehaviour
         {
             propeller.transform.Rotate(new Vector3(0, 30, 0));
         }
+    }
+
+    public void BoatCollision(float collisionVolume)
+    {
+        //plays an impact sound on collision
+        //the volume of the impact is dependant on the speed it hits
+        impactSoundObj.volume = collisionVolume /2;
+        audioManager.Play("Impact");
     }
 }

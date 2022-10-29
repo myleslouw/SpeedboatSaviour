@@ -6,8 +6,6 @@ using UnityEngine;
 //HANDLES PLAYER COLLISION
 public class PlayerScript : MonoBehaviour
 {
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +42,14 @@ public class PlayerScript : MonoBehaviour
             //if player collides with NPC collider it will trigger the NPC talk event 
             EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_TALK, this, collisionObj.GetComponent<NPC>());
         }
+    }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        //otherwise it has collided with something solid and must make a sound
+        //based off the speed it hits, it will change the pitch
+        //sets the pitch to the speed of the impact
+        GetComponent<BoatController>().BoatCollision((collision.relativeVelocity.magnitude / 3));
     }
 
     private void OnTriggerExit(Collider other)

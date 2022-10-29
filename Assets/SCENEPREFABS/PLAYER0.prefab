@@ -170,6 +170,7 @@ MonoBehaviour:
   speed: 3
   audioManager: {fileID: 0}
   soundObj: {fileID: 11400000, guid: 6fcfe1c012fd0c249b46e21fe04509d3, type: 2}
+  impactSoundObj: {fileID: 11400000, guid: 8c3000303d0ff5b46bf8e7f94044b6d5, type: 2}
   propeller: {fileID: 0}
   Boat: {fileID: 82312317383250846}
 --- !u!114 &82312317383250846
@@ -191,10 +192,6 @@ MonoBehaviour:
   cameraTarget: {fileID: 6985568126423199537}
   durabiltySlider: {fileID: 0}
   fuelSlider: {fileID: 0}
-  OrbitDetails:
-  - {x: 4, y: 1}
-  - {x: 2, y: 3}
-  - {x: 1, y: 2}
   onBoardGlass: {fileID: 5843880496322340362}
   onBoardGlassArray: []
   onBoardPlastic: {fileID: 5508239701070439817}
@@ -1044,8 +1041,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2351348420080879376}
-  m_LocalRotation: {x: 0.29531276, y: -0, z: -0, w: 0.95540065}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.29531273, y: -0.000000016169261, z: 0.0000000049978905, w: 0.95540065}
+  m_LocalPosition: {x: 0, y: -0.0000009313223, z: 5.3290695e-14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1318092517874078035}
@@ -1253,8 +1250,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3557804053284085476}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0000009313223, z: 5.3290695e-14}
+  m_LocalRotation: {x: 0.15432018, y: -3e-45, z: -0, w: 0.9880209}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 324250602609825403}
@@ -1555,8 +1552,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6787014868142576862}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0000009313223, z: 5.3290695e-14}
+  m_LocalRotation: {x: 0.108082116, y: 0.006426989, z: -0.0006987506, w: 0.99412096}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3937420290056036910}
