@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text glassCounter, plasticCounter, generalWasteCounter;
     private Dictionary<PollutantType.type, Text> TypeCounters;
     [SerializeField] TextMeshProUGUI levelNum;
-    [SerializeField] GameObject Milestone;
+    public GameObject Milestone;
     AudioManager audioManager;
     public Slider durabiltySlider;
     public Slider fuelSlider;

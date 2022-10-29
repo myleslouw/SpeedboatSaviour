@@ -8,7 +8,7 @@ public class BoatController : MonoBehaviour
     public Transform Director;
     public float speed = 3;        //speed for game, 
     public AudioManager audioManager;
-    public SoundObj soundObj, impactSoundObj;
+    public SoundObj soundObj;
     bool moving;
     public GameObject propeller;
     public Boat Boat;
@@ -38,10 +38,8 @@ public class BoatController : MonoBehaviour
         Boat = GetComponent<Boat>();
         //sets the source of the sound to this game object
         soundObj.source = GetComponent<AudioSource>();
-        impactSoundObj.source = GetComponent<AudioSource>();
         //adds the sound to the list of sounds
         audioManager.AddSoundToList(soundObj);
-        audioManager.AddSoundToList(impactSoundObj);
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -83,7 +81,18 @@ public class BoatController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             //speed boost?
+            
 
+        }
+
+        if (Input.GetKey(KeyCode.Return))
+        {
+            //closing the milestone
+            UIManager uiManager = GetComponentInParent<UIManager>();
+            if (uiManager.Milestone.active)
+            {
+                uiManager.Milestone.SetActive(false);
+            }
         }
 
         //boat sounds
@@ -126,20 +135,12 @@ public class BoatController : MonoBehaviour
         //same as the moving but it is half the speed for turning
         moving = true;
 
-        rb.AddForceAtPosition(direction * speed/2, Director.position, ForceMode.Force);
+        rb.AddForceAtPosition(direction * speed / 2, Director.position, ForceMode.Force);
 
         //spin the propeller if it has one
         if (propeller != null)
         {
             propeller.transform.Rotate(new Vector3(0, 30, 0));
         }
-    }
-
-    public void BoatCollision(float collisionVolume)
-    {
-        //plays an impact sound on collision
-        //the volume of the impact is dependant on the speed it hits
-        impactSoundObj.volume = collisionVolume /2;
-        audioManager.Play("Impact");
     }
 }

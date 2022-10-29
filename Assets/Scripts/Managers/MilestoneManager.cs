@@ -8,7 +8,6 @@ public class MilestoneManager : MonoBehaviour
     public int currentXP;
     public int nextLevelXPRequirement;
 
-
     Dictionary<int, int> LevelRequirements = new Dictionary<int, int>()
     {
         //holds XP needed for each milestone

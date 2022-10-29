@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
         EventManager.OnDelegateEvent GameStartBoatDelegate = GameStartBoat; 
         EventManager.OnDelegateEvent NewBoatDelegate = ChangeBoat;
+        EventManager.OnDelegateEvent GameEndDelegate = GameEnd;
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.UPGRADE_BOAT, NewBoatDelegate);
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.GAME_START, GameStartBoatDelegate);
     }
@@ -62,5 +63,10 @@ public class GameManager : MonoBehaviour
     public void GameStartBoat(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
     {
         SetBoat(currentBoat);
+    }
+
+    public void GameEnd(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
+    {
+        BoatSelection[currentBoat].SetActive(false);
     }
 }

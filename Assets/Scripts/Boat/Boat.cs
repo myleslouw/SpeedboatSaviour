@@ -62,9 +62,10 @@ public class Boat : MonoBehaviour
         //takeaway containers
         onBoardPlasticTakeaway = onBoardGeneralWaste.GetChild(3).GetComponentsInChildren<Transform>();
 
+        //clears all the trash off the boat
         ClearBoat();
 
-        //make sure the parent objects are active
+        //make sure the parent objects are active for trash collection
         onBoardGlass.gameObject.SetActive(true);
         onBoardPlastic.GetChild(0).gameObject.SetActive(true);
         onBoardPlastic.GetChild(1).gameObject.SetActive(true);
@@ -88,6 +89,7 @@ public class Boat : MonoBehaviour
         if (Durabilty <= 0)
         {
             EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.GAME_END, this, null);
+            Durabilty = 100;
             SceneManager.LoadScene(2);
         }
     }
@@ -228,6 +230,9 @@ public class Boat : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
 
+                //otherwise the parent is hidden
+                onBoardGlassArray[0].gameObject.SetActive(true);
+
                 break;
             case PollutantType.type.Plastic:
 
@@ -252,6 +257,11 @@ public class Boat : MonoBehaviour
                     item.gameObject.SetActive(false);
                 }
 
+                //keeps parents active
+                onBoardPlasticBags[0].gameObject.SetActive(true);
+                onBoardPlasticBottles[0].gameObject.SetActive(true);
+                onBoardPlasticTakeaway[0].gameObject.SetActive(true);
+
                 break;
             case PollutantType.type.GeneralWaste:
 
@@ -275,6 +285,10 @@ public class Boat : MonoBehaviour
                 {
                     item.gameObject.SetActive(false);
                 }
+
+                onBoardGWCans[0].gameObject.SetActive(true);
+                onBoardGWCoffee[0].gameObject.SetActive(true);
+                onBoardGWTrash[0].gameObject.SetActive(true);
 
                 break;
             default:

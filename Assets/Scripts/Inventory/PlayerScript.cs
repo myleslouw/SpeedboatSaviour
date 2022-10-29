@@ -6,11 +6,15 @@ using UnityEngine;
 //HANDLES PLAYER COLLISION
 public class PlayerScript : MonoBehaviour
 {
+    private AudioManager audioManager;
+    public SoundObj impactSoundObj;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManager = GetComponent<BoatController>().audioManager;
+        audioManager.AddSoundToList(impactSoundObj);
     }
+
 
     //TRIGGER ONCE
     private void OnTriggerEnter(Collider other)
@@ -49,7 +53,9 @@ public class PlayerScript : MonoBehaviour
         //otherwise it has collided with something solid and must make a sound
         //based off the speed it hits, it will change the pitch
         //sets the pitch to the speed of the impact
-        GetComponent<BoatController>().BoatCollision((collision.relativeVelocity.magnitude / 3));
+        //collision.relativeVelocity.magnitude / 3
+        impactSoundObj.volume = collision.relativeVelocity.magnitude / 3;
+        audioManager.Play("Impact");
     }
 
     private void OnTriggerExit(Collider other)
