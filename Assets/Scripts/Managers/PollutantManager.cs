@@ -63,25 +63,27 @@ public class PollutantManager : MonoBehaviour
             //spawns the oil spills for that level
             for (int i = 0; i < oilSpills[currentLevelNum].OilSpillsInLevel.Length; i++)
             {
-
-                Hazard spawnedHazard = new Hazard();
-                int hazardType = oilSpills[0].OilSpillsInLevel[i].oilType;  //gets the oil type
-                Vector3 oilPosition = oilSpills[0].OilSpillsInLevel[i].oilPosition;                         //  vv   spawns flat and at a random angle
-                spawnedHazard = Instantiate(HazardOptions[hazardType], oilPosition, Quaternion.Euler(new Vector3(-90, 0, rand.Next(0, 180))));
+                SpawnOil(i);
             }
         }
-    }
-
-    public void LoadLevel(int levelNum)
-    {
-
     }
     public void SpawnPollutant()
     {
         //creates a pollutant
         Pollutant spawnedObj = new Pollutant();
+        //a transform has a radius of 10 around it
+        //a new position is created within that circle
         Vector2 newPosition = (Random.insideUnitCircle * 10) + new Vector2(SpawnPoint.position.x, SpawnPoint.position.z);
+        //randoms a pollutant and spawns it at the new position
         spawnedObj = Instantiate(PollutantOptions[rand.Next(0,PollutantOptions.Length)], new Vector3(newPosition.x , WATERHEIGHT, newPosition.y), Quaternion.identity);
+    }
+
+    public void SpawnOil(int i)
+    {
+        Hazard spawnedHazard = new Hazard();
+        int hazardType = oilSpills[0].OilSpillsInLevel[i].oilType;  //gets the oil type
+        Vector3 oilPosition = oilSpills[0].OilSpillsInLevel[i].oilPosition;                         //  vv   spawns flat and at a random angle
+        spawnedHazard = Instantiate(HazardOptions[hazardType], oilPosition, Quaternion.Euler(new Vector3(-90, 0, rand.Next(0, 180))));
     }
 
 }

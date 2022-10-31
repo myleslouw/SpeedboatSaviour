@@ -11,9 +11,16 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //gets the audio manager
         audioManager = GetComponent<BoatController>().audioManager;
+
+        //adding the impact and recycle sounds to the list
         audioManager.AddSoundToList(impactSoundObj);
         audioManager.AddSoundToList(recycleSoundObj);
+
+        //the audio source is on the "TrashCollected" GO
+        pickupObj.source = transform.GetChild(3).GetComponent<AudioSource>();
+        //adding pickup sound to the list
         audioManager.AddSoundToList(pickupObj);
     }
 
@@ -30,7 +37,7 @@ public class PlayerScript : MonoBehaviour
 
             //Posts the event to all listeners of the POLLUTANT_PICKUP event and sends the pollutant for listeners to use
             EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.POLLUTANT_PICKUP, this, collisionObj.GetComponent<Pollutant>());
-
+            //play the pickup sound 
             audioManager.Play("Pickup");
             //plays the animation and destroys the obj
             collisionObj.GetComponent<Pollutant>().PickUpAnimation();
@@ -65,14 +72,17 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.gameObject.GetComponent<NPC>())
         {
+            //when the player leaves the NPC talking area
             EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_LEAVE, this, this.transform);
         }
     }
 
-    //TRIGGER WHILE TOUCHING
     private void OnTriggerStay(Collider other)
     {
+        //TRIGGER WHILE TOUCHING
 
+        //Hazard - does damage to the current boat
+        //FuelRefill - refills the current boat
         if (other.gameObject.GetComponent<Hazard>())
         {
            

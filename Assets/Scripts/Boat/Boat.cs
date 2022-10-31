@@ -22,19 +22,23 @@ public class Boat : MonoBehaviour
 
     public Slider fuelSlider;
 
-    public Transform onBoardGlass;
+    public Transform onBoardGlass;      //the glass parent  
     public Transform[] onBoardGlassArray;
 
-    public Transform onBoardPlastic;
+    public Transform onBoardPlastic;    //the plastic parent
     public Transform[] onBoardPlasticBottles;
     public Transform[] onBoardPlasticBags;
 
-    public Transform onBoardGeneralWaste;
+    public Transform onBoardGeneralWaste;       //GW parent
+
     public Transform[] onBoardGWCans;
     public Transform[] onBoardPlasticTakeaway;
     public Transform[] onBoardGWCoffee;
     public Transform[] onBoardGWTrash;
 
+    //the index of which onboard item to spawn in the array
+    //0 - parent
+    //1 - first element
     int glassIndex = 1, bottlesIndex = 1, bagsIndex = 1, cansIndex = 1, trashIndex = 1, coffeeIndex = 1, takeawayIndex = 1;
 
     private void Start()
@@ -46,7 +50,7 @@ public class Boat : MonoBehaviour
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.POLLUTANT_PICKUP, PickupDelegate);
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.RECYCLE_POLLUTANT, ClearBoatDelegate);
 
-        //ALL THE POLLUTANT POSITIONS IN THE BOAT LOADED INTO ARRAY
+        //ALL THE POLLUTANT COLLECTED IN THE BOAT LOADED INTO ARRAY
         //gets all the glass items in an array
         onBoardGlassArray = onBoardGlass.GetComponentsInChildren<Transform>();
         //gets the plastic bottles from within the child
@@ -78,13 +82,14 @@ public class Boat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //sets the sliders to the fuel and damage value
         durabiltySlider.value = Durabilty;
         fuelSlider.value = Fuel;
-
     }
 
     public void TakeDamage()
     {
+        //takes damage per second
         Durabilty -= Damage;
         if (Durabilty <= 0)
         {
@@ -96,6 +101,7 @@ public class Boat : MonoBehaviour
 
     public void UseFuel()
     {
+        //uses fuel per second
         Fuel -= FuelConsumption;
         if (Fuel <= 0)
         {
@@ -105,7 +111,6 @@ public class Boat : MonoBehaviour
 
     public void RefuelBoat(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
     {
-        print("REFUELING...");
         //get the fuel object from the event
         int fuelRefill = (int)Params;
         //add the refill amount to the boats current fuel if its not full
@@ -117,7 +122,11 @@ public class Boat : MonoBehaviour
 
     public void PickupPollutant(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
     {
-        //gets the type of pollutant picked up and shows it in the boat
+        //each type has an array of items it can show on the boat when it is picked up 
+
+        //it first checks the type
+        //it will then go into the subtype
+        //it will then show that element of the array and then increment the index to show the next one
 
         //gets pollutant from event
         Pollutant pollutant = (Pollutant)Params;
@@ -129,22 +138,27 @@ public class Boat : MonoBehaviour
                 //THERE ARE ONLY GLASS BOTTLES
                 //sets an item of that type to show in the boat
                 onBoardGlassArray[glassIndex].gameObject.SetActive(true);
+
+                //if it hasnt reached the max amount shown on the boat
                 if (!(glassIndex >= onBoardGlassArray.Length))
                 {
+                    //increment the index
                     glassIndex++;
                 }
 
                 break;
             case PollutantType.type.Plastic:
 
-                //checks if it is a plastic bottle or bag
+                //checks if it is a plastic bottle, bag or takeaway
                 //sets an item of that type to show in the boat
-                //onBoardPlasticArray[plasticIndex].gameObject.SetActive(true);
+
+                //PLASTIC HAS SUBTYPES
                 switch (pollutant.subType)
                 {
                     case PollutantType.subType.bottles:
 
                         onBoardPlasticBottles[bottlesIndex].gameObject.SetActive(true);
+
                         if (!(bottlesIndex >= (onBoardPlasticBottles.Length - 1)))
                         {
                             bottlesIndex++;
@@ -172,7 +186,7 @@ public class Boat : MonoBehaviour
                 break;
             case PollutantType.type.GeneralWaste:
 
-                //checks if its trash, cans, takeaway or coffee
+                //checks if its trash, cans or coffee
                 //sets an item of that type to show in the boat
                 //onBoardGeneralWasteArray[generalWasteIndex].gameObject.SetActive(true);
                 switch (pollutant.subType)
@@ -216,6 +230,12 @@ public class Boat : MonoBehaviour
 
     public void RemovePollutants(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
     {
+        //checks what type of recycler 
+        //hides all items of that type on the boat
+
+        //NO SUBTYPES!!
+
+
         //gets the recylcer type
         PollutantRecycler recyclerType = (PollutantRecycler)Params;
 

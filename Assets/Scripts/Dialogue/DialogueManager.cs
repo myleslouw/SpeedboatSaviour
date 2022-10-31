@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
 
     int dialogueIndex;      //the index in the array of sentences for a conversation  (0- NPC speaking, 1 - Player speaking, 2 - NPC speaking etc)
 
-    NPC NPCinRange;
+    NPC NPCinRange;         //the current NPC the player is talking to 
 
     int numSentences;   //the number of sentences in the dialogue piece
 
@@ -69,6 +69,7 @@ public class DialogueManager : MonoBehaviour
         //shows dialogue box
         dialogueActive = true;
         dialogueBox.SetActive(true);
+
         //starts the dialogue from zero
         dialogueIndex = 0;
         //gets NPC details from the Event

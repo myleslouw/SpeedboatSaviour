@@ -18,20 +18,8 @@ public class BoatController : MonoBehaviour
     //3.689 for sail
     //3.652 for speedboat
 
-
-
     //NEW BOAT HEIGHT 0.7
-
-    private void Awake()
-    {
-        //rb = GetComponent<Rigidbody>();
-
-        ////sets the source of the sound to this game object
-        //soundObj.source = GetComponent<AudioSource>();
-        ////adds the sound to the list of sounds
-        //audioManager.AddSoundToList(soundObj);
-        
-    }
+   
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -54,7 +42,6 @@ public class BoatController : MonoBehaviour
 
         //adding force to the rigidbody at position in the front of the gameobject to give it the right feel
 
-     
         if (Input.GetKey(KeyCode.W))
         {
             //move forward
@@ -101,11 +88,11 @@ public class BoatController : MonoBehaviour
 
         if (moving)
         {
+            //if the boat is moving, it will consume fuel per second
             Boat.UseFuel();
         }
 
         //closing milestone manager with ENTER
-
         if (Input.GetKey(KeyCode.Return))
         {
             //closing the milestone
@@ -113,6 +100,7 @@ public class BoatController : MonoBehaviour
             if (uiManager.Milestone.active)
             {
                 uiManager.Milestone.SetActive(false);
+                //playing the milestone closing sound
                 GetComponentInParent<AudioManager>().Play("CloseMilestone");
             }
         }
@@ -120,9 +108,10 @@ public class BoatController : MonoBehaviour
 
     private void MoveBoat(Vector3 direction)
     {
-
+        //Moving the boat
         moving = true;
 
+        //add force to the boats director transform
         rb.AddForceAtPosition(direction * speed, Director.position, ForceMode.Force);
 
 
