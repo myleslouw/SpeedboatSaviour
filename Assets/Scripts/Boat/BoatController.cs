@@ -8,7 +8,7 @@ public class BoatController : MonoBehaviour
     public Transform Director;
     public float speed = 3;        //speed for game, 
     public AudioManager audioManager;
-    public SoundObj soundObj;
+    public SoundObj soundObj, milestoneCloseSound;
     bool moving;
     public GameObject propeller;
     public Boat Boat;
@@ -40,6 +40,7 @@ public class BoatController : MonoBehaviour
         soundObj.source = GetComponent<AudioSource>();
         //adds the sound to the list of sounds
         audioManager.AddSoundToList(soundObj);
+        audioManager.AddSoundToList(milestoneCloseSound);
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -81,18 +82,8 @@ public class BoatController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             //speed boost?
-            
 
-        }
 
-        if (Input.GetKey(KeyCode.Return))
-        {
-            //closing the milestone
-            UIManager uiManager = GetComponentInParent<UIManager>();
-            if (uiManager.Milestone.active)
-            {
-                uiManager.Milestone.SetActive(false);
-            }
         }
 
         //boat sounds
@@ -111,6 +102,19 @@ public class BoatController : MonoBehaviour
         if (moving)
         {
             Boat.UseFuel();
+        }
+
+        //closing milestone manager with ENTER
+
+        if (Input.GetKey(KeyCode.Return))
+        {
+            //closing the milestone
+            UIManager uiManager = GetComponentInParent<UIManager>();
+            if (uiManager.Milestone.active)
+            {
+                uiManager.Milestone.SetActive(false);
+                GetComponentInParent<AudioManager>().Play("CloseMilestone");
+            }
         }
     }
 

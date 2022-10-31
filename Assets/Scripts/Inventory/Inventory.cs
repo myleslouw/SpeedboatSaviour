@@ -73,6 +73,12 @@ public class Inventory : MonoBehaviour
         //gets the event obj data
         PollutantRecycler recycler = (PollutantRecycler)Params;
 
+        if (PollutantInventory[recycler.recyclerType] != 0)
+        {
+            //if the inventory isnt empty it should play a sound when recycling
+            GetComponent<AudioManager>().Play("Recycle");
+        }
+
         //ADD XP event
         EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.ADD_XP, this, recycler);
 

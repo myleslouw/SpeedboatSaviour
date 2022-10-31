@@ -588,11 +588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65527458412860230, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015723568
+      value: -0.000000015995134
       objectReference: {fileID: 0}
     - target: {fileID: 65527458412860230, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000062338743
+      value: 0.0000000063415424
       objectReference: {fileID: 0}
     - target: {fileID: 82312317383250846, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: cameraTarget
@@ -638,6 +638,10 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 6221951270348602905}
+    - target: {fileID: 811217643434440946, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
+      propertyPath: milestoneCloseSound
+      value: 
+      objectReference: {fileID: 11400000, guid: aed42a7c6530db5478554cebe509accb, type: 2}
     - target: {fileID: 921196521775166394, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -684,11 +688,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2066497801547900539, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.000007636842
+      value: -0.00001918524
       objectReference: {fileID: 0}
     - target: {fileID: 2066497801547900539, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.2632556e-13
+      value: 1.7053022e-12
       objectReference: {fileID: 0}
     - target: {fileID: 2066497801547900539, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_LocalRotation.w
@@ -700,11 +704,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2066497801547900539, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008646447
+      value: -0.000000008333615
       objectReference: {fileID: 0}
     - target: {fileID: 2066497801547900539, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000002238097
+      value: 0.0000000021571216
       objectReference: {fileID: 0}
     - target: {fileID: 2875694907351407572, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_YAxis.Value

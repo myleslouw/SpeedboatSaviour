@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c8114e3d67492248ab818766925ffd0, type: 3}
-  m_Name: Impact
+  m_Name: Recycle
   m_EditorClassIdentifier: 
-  SoundName: Impact
-  clip: {fileID: 8300000, guid: c799748ff4e47444daac8fae882b55a8, type: 3}
-  volume: 0.91519284
+  SoundName: Recycle
+  clip: {fileID: 8300000, guid: 4cf24d05d1e4cb7449b4f2870833d529, type: 3}
+  volume: 0.32
   source: {fileID: 0}
   soundLoop: 0
   spatialBlend: 0

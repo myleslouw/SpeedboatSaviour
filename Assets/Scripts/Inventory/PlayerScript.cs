@@ -7,12 +7,14 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     private AudioManager audioManager;
-    public SoundObj impactSoundObj;
+    public SoundObj impactSoundObj, recycleSoundObj, pickupObj;
     // Start is called before the first frame update
     void Start()
     {
         audioManager = GetComponent<BoatController>().audioManager;
         audioManager.AddSoundToList(impactSoundObj);
+        audioManager.AddSoundToList(recycleSoundObj);
+        audioManager.AddSoundToList(pickupObj);
     }
 
 
@@ -29,6 +31,7 @@ public class PlayerScript : MonoBehaviour
             //Posts the event to all listeners of the POLLUTANT_PICKUP event and sends the pollutant for listeners to use
             EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.POLLUTANT_PICKUP, this, collisionObj.GetComponent<Pollutant>());
 
+            audioManager.Play("Pickup");
             //plays the animation and destroys the obj
             collisionObj.GetComponent<Pollutant>().PickUpAnimation();
         }

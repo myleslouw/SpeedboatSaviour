@@ -525,7 +525,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4804548312809544413}
-  m_LocalRotation: {x: 0.23099765, y: -0.000000018684222, z: 0.000000004435988, w: 0.97295433}
+  m_LocalRotation: {x: 0.23099765, y: 0.000000018717033, z: -0.0000000044437765, w: 0.97295433}
   m_LocalPosition: {x: 0, y: -0.0000017881389, z: 1.421085e-13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1422,6 +1422,7 @@ MonoBehaviour:
   speed: 4
   audioManager: {fileID: 0}
   soundObj: {fileID: 11400000, guid: 6fcfe1c012fd0c249b46e21fe04509d3, type: 2}
+  milestoneCloseSound: {fileID: 11400000, guid: aed42a7c6530db5478554cebe509accb, type: 2}
   propeller: {fileID: 0}
   Boat: {fileID: 0}
 --- !u!114 &5070759929775699747
@@ -1437,6 +1438,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactSoundObj: {fileID: 11400000, guid: 8c3000303d0ff5b46bf8e7f94044b6d5, type: 2}
+  recycleSoundObj: {fileID: 11400000, guid: 59398d0caf2597345a07d97b9c48754b, type: 2}
+  pickupObj: {fileID: 11400000, guid: bcf0cde5dee23df41906b440842e2495, type: 2}
 --- !u!1 &6569794160687558067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1575,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8065294982430028868}
-  m_LocalRotation: {x: 0.20826863, y: 0.00000001682877, z: -0.0000000035834857, w: 0.9780717}
+  m_LocalRotation: {x: 0.20826863, y: -0.000000016829075, z: 0.0000000035835501, w: 0.9780717}
   m_LocalPosition: {x: 0, y: -0.0000017881389, z: 1.421085e-13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1932,8 +1935,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8991119801655533769}
-  m_LocalRotation: {x: 0.17064463, y: -1.0257735e-17, z: -6.768744e-17, w: 0.98533267}
-  m_LocalPosition: {x: 0, y: -0.0000029057258, z: 2.84217e-13}
+  m_LocalRotation: {x: 0.17064463, y: 0.000000009810603, z: -0.0000000016990477, w: 0.98533267}
+  m_LocalPosition: {x: 0, y: -0.000009611246, z: 5.68434e-13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2519771342847744105}
