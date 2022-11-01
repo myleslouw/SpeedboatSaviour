@@ -18,4 +18,4 @@ MonoBehaviour:
   source: {fileID: 0}
   soundLoop: 0
   spatialBlend: 0
-  ExistingSource: 0
+  ExistingSource: 1

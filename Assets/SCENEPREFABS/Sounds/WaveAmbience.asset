@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: WaveAmbience
   clip: {fileID: 8300000, guid: 4357d5fc9ae6d294fa10dbb9a02fc1ac, type: 3}
-  volume: 0.02
+  volume: 0.08
   source: {fileID: 0}
   soundLoop: 1
   spatialBlend: 0

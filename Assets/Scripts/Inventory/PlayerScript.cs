@@ -15,7 +15,12 @@ public class PlayerScript : MonoBehaviour
         audioManager = GetComponent<BoatController>().audioManager;
 
         //adding the impact and recycle sounds to the list
+
+
+        impactSoundObj.source = transform.GetChild(3).GetComponent<AudioSource>();
         audioManager.AddSoundToList(impactSoundObj);
+
+        recycleSoundObj.source = transform.GetChild(3).GetComponent<AudioSource>();
         audioManager.AddSoundToList(recycleSoundObj);
 
         //the audio source is on the "TrashCollected" GO
