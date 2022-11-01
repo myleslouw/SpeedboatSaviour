@@ -383,6 +383,8 @@ MonoBehaviour:
   HazardOptions:
   - {fileID: 1893890147061535181, guid: a4ed33b3b3094d84b87c729691a54c71, type: 3}
   - {fileID: 2466367178364448399, guid: 43633de1ee6c027418cf4b1a555ffd44, type: 3}
+  activePollutants: []
+  activeHazards: []
   SpawnPoint: {fileID: 5747404706245210906}
 --- !u!114 &7807452526149741265
 MonoBehaviour:
@@ -1751,6 +1753,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5168660688022738206, guid: f55ea68720c43744eb0c7afc2ee36a9e, type: 3}
+      propertyPath: m_Center.x
+      value: 0.11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f55ea68720c43744eb0c7afc2ee36a9e, type: 3}
 --- !u!4 &6425855806953280936 stripped
@@ -1966,7 +1972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2066497801547900539, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.000026822081
+      value: -0.000022910528
       objectReference: {fileID: 0}
     - target: {fileID: 2066497801547900539, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1982,11 +1988,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2066497801547900539, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000007006316
+      value: -0.000000008339442
       objectReference: {fileID: 0}
     - target: {fileID: 2066497801547900539, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000001813555
+      value: 0.0000000021586293
       objectReference: {fileID: 0}
     - target: {fileID: 2875694907351407572, guid: 3f8e5ae2de08d304abdb61f75a466a72, type: 3}
       propertyPath: m_YAxis.Value
@@ -2075,6 +2081,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 720887958712912357}
     m_Modifications:
+    - target: {fileID: 2627919217300849611, guid: f55ea68720c43744eb0c7afc2ee36a9e, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: a7113139361f8934f9bd44da88fe868e, type: 2}
     - target: {fileID: 4175040226541010756, guid: f55ea68720c43744eb0c7afc2ee36a9e, type: 3}
       propertyPath: m_Name
       value: NPC_Pete
