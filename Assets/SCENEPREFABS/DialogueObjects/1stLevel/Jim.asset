@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f08071ba53a644b4e9c9b2b60070b608, type: 3}
-  m_Name: PeteStart
+  m_Name: Jim
   m_EditorClassIdentifier: 
-  npcName: Pete Starboard, mechanic
+  npcName: Jimothy - Worker
   sentences:
-  - Hey, I'm Pete, I can upgrade your boat
-  - Hi, Thats great!
-  - the boat will change when you speak to me, in the full game, you must reach a
-    milestone first
-  rewardAfter: 1
+  - "Oh, I didn\u2019t see you there! Really snuck up on me\u2026 I\u2019m Jimothy,
+    and I manage the recycling bins. The three bins separate the different types
+    of trash. Go on and collect some trash from the water and drop it into the correct
+    bin! It\u2019s easy as cake\u2026or\u2026pie?"
+  rewardAfter: 0
