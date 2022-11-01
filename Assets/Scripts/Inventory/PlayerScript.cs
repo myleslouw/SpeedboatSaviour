@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 
@@ -15,7 +16,11 @@ public class PlayerScript : MonoBehaviour
         audioManager = GetComponent<BoatController>().audioManager;
 
         //adding the impact and recycle sounds to the list
+        impactSoundObj.source = transform.GetChild(3).GetComponent<AudioSource>();
         audioManager.AddSoundToList(impactSoundObj);
+
+        //sets the TrashCollected GO as source
+        recycleSoundObj.source = transform.GetChild(3).GetComponent<AudioSource>();
         audioManager.AddSoundToList(recycleSoundObj);
 
         //the audio source is on the "TrashCollected" GO
@@ -66,7 +71,16 @@ public class PlayerScript : MonoBehaviour
         //collision.relativeVelocity.magnitude / 3
         impactSoundObj.volume = collision.relativeVelocity.magnitude / 3;
         audioManager.Play("Impact");
+        //WaveSoundAfterImpact();
     }
+
+    private async Task WaveSoundAfterImpact()
+    {
+        //waits for the closeMilestone sound to finish before playing the wave ambience
+        await Task.Delay(220);
+        GetComponentInParent<AudioManager>().Play("WaveAmbience");
+    }
+
 
     private void OnTriggerExit(Collider other)
     {

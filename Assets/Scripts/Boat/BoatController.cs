@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class BoatController : MonoBehaviour
@@ -12,6 +13,8 @@ public class BoatController : MonoBehaviour
     bool moving;
     public GameObject propeller;
     public Boat Boat;
+    private float cooldownTime;     //3 secodnd cooldown for boost
+    private float boostDuration = 1;    //the duration of the boost      
 
 
     //OLD BOAT HEIGHT WAS 3.9 for row boat
@@ -33,6 +36,8 @@ public class BoatController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+        cooldownTime -= Time.deltaTime;
 
         if (!Input.anyKey)
         {
@@ -69,7 +74,12 @@ public class BoatController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             //speed boost?
-
+            //if the cooldown has ended
+            if (cooldownTime <= 0)
+            {
+                print("Boost");
+                StartCoroutine(SpeedBoost());
+            }
 
         }
 
@@ -102,8 +112,16 @@ public class BoatController : MonoBehaviour
                 uiManager.Milestone.SetActive(false);
                 //playing the milestone closing sound
                 GetComponentInParent<AudioManager>().Play("CloseMilestone");
+                WaveSoundAfterCloseMilestone();
             }
         }
+    }
+
+    private async Task WaveSoundAfterCloseMilestone()
+    {
+        //waits for the closeMilestone sound to finish before playing the wave ambience
+        await Task.Delay(1500);
+        GetComponentInParent<AudioManager>().Play("WaveAmbience");
     }
 
     private void MoveBoat(Vector3 direction)
@@ -135,5 +153,17 @@ public class BoatController : MonoBehaviour
         {
             propeller.transform.Rotate(new Vector3(0, 30, 0));
         }
+    }
+
+    private IEnumerator SpeedBoost()
+    {
+        //sets the speed to 5 for 
+        speed = 5;
+
+        yield return new WaitForSeconds(boostDuration);
+
+        //start the cooldown
+        cooldownTime = 5;
+        speed = 3;
     }
 }

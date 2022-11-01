@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Recycle
   clip: {fileID: 8300000, guid: 4cf24d05d1e4cb7449b4f2870833d529, type: 3}
-  volume: 0.32
+  volume: 0.1
   source: {fileID: 0}
   soundLoop: 0
   spatialBlend: 0

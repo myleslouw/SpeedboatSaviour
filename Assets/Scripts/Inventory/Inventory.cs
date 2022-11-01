@@ -77,7 +77,10 @@ public class Inventory : MonoBehaviour
         {
             //if the inventory isnt empty it should play a sound when recycling
             GetComponent<AudioManager>().Play("Recycle");
+            WaveSoundAfterRecycle();
         }
+
+
 
         //ADD XP event
         EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.ADD_XP, this, recycler);
@@ -87,6 +90,13 @@ public class Inventory : MonoBehaviour
 
         //it then updaes the UI to show the 0 in invetory
         EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.RECYCLE_UI, this, recycler);
+    }
+
+    private async Task WaveSoundAfterRecycle()
+    {
+        //waits for the recycle sound to finish before playing the wave ambience
+        await System.Threading.Tasks.Task.Delay(2200);
+        GetComponent<AudioManager>().Play("WaveAmbience");
     }
 
 }

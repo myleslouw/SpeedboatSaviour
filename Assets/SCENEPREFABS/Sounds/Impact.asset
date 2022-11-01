@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Impact
   clip: {fileID: 8300000, guid: c799748ff4e47444daac8fae882b55a8, type: 3}
-  volume: 0.91519284
+  volume: 1.329149
   source: {fileID: 0}
   soundLoop: 0
   spatialBlend: 0
-  ExistingSource: 0
+  ExistingSource: 1
