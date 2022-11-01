@@ -17,6 +17,6 @@ MonoBehaviour:
   - Hi there, water baby! Welcome to the team
   - Glad to be here! To say these waters are polluted would be an understatement
   - "Thats for sure\u2026Anyway, Jim is looking for you. Use the W A S D keys to
-    move around and the mouse to move the camera view. You can find them at the recycling
-    station!"
+    move around and the mouse to move the camera view. Press shift for a temporary
+    speed boost. You can find them at the recycling station!"
   rewardAfter: 0

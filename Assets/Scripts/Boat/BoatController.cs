@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class BoatController : MonoBehaviour
@@ -12,6 +13,8 @@ public class BoatController : MonoBehaviour
     bool moving;
     public GameObject propeller;
     public Boat Boat;
+    private float coolDown;
+    private float boostDuration = 1;
 
 
     //OLD BOAT HEIGHT WAS 3.9 for row boat
@@ -33,6 +36,8 @@ public class BoatController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        coolDown -= Time.deltaTime;
+
 
         if (!Input.anyKey)
         {
@@ -69,8 +74,10 @@ public class BoatController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             //speed boost?
-
-
+            if (coolDown <= 0)
+            {
+                StartCoroutine(SpeedBoost());
+            }
         }
 
         //boat sounds
@@ -102,8 +109,15 @@ public class BoatController : MonoBehaviour
                 uiManager.Milestone.SetActive(false);
                 //playing the milestone closing sound
                 GetComponentInParent<AudioManager>().Play("CloseMilestone");
+                PlayWavesAfterMilestone();
             }
         }
+    }
+
+    private async Task PlayWavesAfterMilestone()
+    {
+        Task.Delay(500);
+        GetComponentInParent<AudioManager>().Play("WaveAmbience");
     }
 
     private void MoveBoat(Vector3 direction)
@@ -135,5 +149,18 @@ public class BoatController : MonoBehaviour
         {
             propeller.transform.Rotate(new Vector3(0, 30, 0));
         }
+    }
+
+    private IEnumerator SpeedBoost()
+    {
+        speed = 6;
+
+        print("speedBoost");
+
+        yield return new WaitForSeconds(boostDuration);
+
+        coolDown = 5;
+
+        speed = 3;
     }
 }

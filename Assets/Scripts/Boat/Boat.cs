@@ -129,102 +129,105 @@ public class Boat : MonoBehaviour
         //it will then show that element of the array and then increment the index to show the next one
 
         //gets pollutant from event
-        Pollutant pollutant = (Pollutant)Params;
-
-        //depending on what type 
-        switch (pollutant.pollutantObj.pollutantType)
+        if (Params != null)
         {
-            case PollutantType.type.Glass:
-                //THERE ARE ONLY GLASS BOTTLES
-                //sets an item of that type to show in the boat
-                onBoardGlassArray[glassIndex].gameObject.SetActive(true);
+            Pollutant pollutant = (Pollutant)Params;
 
-                //if it hasnt reached the max amount shown on the boat
-                if (!(glassIndex >= onBoardGlassArray.Length))
-                {
-                    //increment the index
-                    glassIndex++;
-                }
+            //depending on what type 
+            switch (pollutant.pollutantObj.pollutantType)
+            {
+                case PollutantType.type.Glass:
+                    //THERE ARE ONLY GLASS BOTTLES
+                    //sets an item of that type to show in the boat
+                    onBoardGlassArray[glassIndex].gameObject.SetActive(true);
 
-                break;
-            case PollutantType.type.Plastic:
+                    //if it hasnt reached the max amount shown on the boat
+                    if (!(glassIndex >= onBoardGlassArray.Length))
+                    {
+                        //increment the index
+                        glassIndex++;
+                    }
 
-                //checks if it is a plastic bottle, bag or takeaway
-                //sets an item of that type to show in the boat
+                    break;
+                case PollutantType.type.Plastic:
 
-                //PLASTIC HAS SUBTYPES
-                switch (pollutant.subType)
-                {
-                    case PollutantType.subType.bottles:
+                    //checks if it is a plastic bottle, bag or takeaway
+                    //sets an item of that type to show in the boat
 
-                        onBoardPlasticBottles[bottlesIndex].gameObject.SetActive(true);
+                    //PLASTIC HAS SUBTYPES
+                    switch (pollutant.subType)
+                    {
+                        case PollutantType.subType.bottles:
 
-                        if (!(bottlesIndex >= (onBoardPlasticBottles.Length - 1)))
-                        {
-                            bottlesIndex++;
-                        }
-                        break;
-                    case PollutantType.subType.bags:
+                            onBoardPlasticBottles[bottlesIndex].gameObject.SetActive(true);
 
-                        onBoardPlasticBags[bagsIndex].gameObject.SetActive(true);
-                        if (!(bagsIndex >= (onBoardPlasticBags.Length - 1)))
-                        {
-                            bagsIndex++;
-                        }
-                        break;
-                    case PollutantType.subType.takeaway:
+                            if (!(bottlesIndex >= (onBoardPlasticBottles.Length - 1)))
+                            {
+                                bottlesIndex++;
+                            }
+                            break;
+                        case PollutantType.subType.bags:
 
-                        onBoardPlasticTakeaway[takeawayIndex].gameObject.SetActive(true);
-                        if (!(takeawayIndex >= (onBoardPlasticTakeaway.Length - 1)))
-                        {
-                            takeawayIndex++;
-                        }
+                            onBoardPlasticBags[bagsIndex].gameObject.SetActive(true);
+                            if (!(bagsIndex >= (onBoardPlasticBags.Length - 1)))
+                            {
+                                bagsIndex++;
+                            }
+                            break;
+                        case PollutantType.subType.takeaway:
 
-                        break;
-                }
+                            onBoardPlasticTakeaway[takeawayIndex].gameObject.SetActive(true);
+                            if (!(takeawayIndex >= (onBoardPlasticTakeaway.Length - 1)))
+                            {
+                                takeawayIndex++;
+                            }
 
-                break;
-            case PollutantType.type.GeneralWaste:
+                            break;
+                    }
 
-                //checks if its trash, cans or coffee
-                //sets an item of that type to show in the boat
-                //onBoardGeneralWasteArray[generalWasteIndex].gameObject.SetActive(true);
-                switch (pollutant.subType)
-                {
-                    case PollutantType.subType.cans:
+                    break;
+                case PollutantType.type.GeneralWaste:
 
-                        onBoardGWCans[cansIndex].gameObject.SetActive(true);
-                        if (!(cansIndex >= (onBoardGWCans.Length - 1)))
-                        {
-                            cansIndex++;
-                        }
+                    //checks if its trash, cans or coffee
+                    //sets an item of that type to show in the boat
+                    //onBoardGeneralWasteArray[generalWasteIndex].gameObject.SetActive(true);
+                    switch (pollutant.subType)
+                    {
+                        case PollutantType.subType.cans:
 
-                        break;
-                    case PollutantType.subType.trash:
+                            onBoardGWCans[cansIndex].gameObject.SetActive(true);
+                            if (!(cansIndex >= (onBoardGWCans.Length - 1)))
+                            {
+                                cansIndex++;
+                            }
 
-                        onBoardGWTrash[trashIndex].gameObject.SetActive(true);
-                        if (!(trashIndex >= (onBoardGWTrash.Length - 1)))
-                        {
-                            trashIndex++;
-                        }
+                            break;
+                        case PollutantType.subType.trash:
 
-                        break;
-                    case PollutantType.subType.coffee:
+                            onBoardGWTrash[trashIndex].gameObject.SetActive(true);
+                            if (!(trashIndex >= (onBoardGWTrash.Length - 1)))
+                            {
+                                trashIndex++;
+                            }
 
-                        onBoardGWCoffee[coffeeIndex].gameObject.SetActive(true);
-                        if (!(coffeeIndex >= (onBoardGWCoffee.Length - 1)))
-                        {
-                            coffeeIndex++;
-                        }
+                            break;
+                        case PollutantType.subType.coffee:
 
-                        break;
-                    default:
-                        break;
-                }
+                            onBoardGWCoffee[coffeeIndex].gameObject.SetActive(true);
+                            if (!(coffeeIndex >= (onBoardGWCoffee.Length - 1)))
+                            {
+                                coffeeIndex++;
+                            }
 
-                break;
-            default:
-                break;  
+                            break;
+                        default:
+                            break;
+                    }
+
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -235,85 +238,88 @@ public class Boat : MonoBehaviour
 
         //NO SUBTYPES!!
 
-
-        //gets the recylcer type
-        PollutantRecycler recyclerType = (PollutantRecycler)Params;
-
-        switch (recyclerType.recyclerType)
+        if (Params != null)
         {
-            case PollutantType.type.Glass:
+            //gets the recylcer type
+            PollutantRecycler recyclerType = (PollutantRecycler)Params;
 
-                glassIndex = 1;
+            switch (recyclerType.recyclerType)
+            {
+                case PollutantType.type.Glass:
 
-                foreach (Transform item in onBoardGlassArray)
-                {
-                    item.gameObject.SetActive(false);
-                }
+                    glassIndex = 1;
 
-                //otherwise the parent is hidden
-                onBoardGlassArray[0].gameObject.SetActive(true);
+                    foreach (Transform item in onBoardGlassArray)
+                    {
+                        item.gameObject.SetActive(false);
+                    }
 
-                break;
-            case PollutantType.type.Plastic:
+                    //otherwise the parent is hidden
+                    onBoardGlassArray[0].gameObject.SetActive(true);
 
-                //resets the index 
-                takeawayIndex = 1;
-                bagsIndex = 1;
-                bottlesIndex = 1;
+                    break;
+                case PollutantType.type.Plastic:
 
-                //hides those polltants on the boat
-                foreach (Transform item in onBoardPlasticTakeaway)
-                {
-                    item.gameObject.SetActive(false);
-                }
+                    //resets the index 
+                    takeawayIndex = 1;
+                    bagsIndex = 1;
+                    bottlesIndex = 1;
 
-                foreach (Transform item in onBoardPlasticBottles)
-                {
-                    item.gameObject.SetActive(false);
-                }
+                    //hides those polltants on the boat
+                    foreach (Transform item in onBoardPlasticTakeaway)
+                    {
+                        item.gameObject.SetActive(false);
+                    }
 
-                foreach (Transform item in onBoardPlasticBags)
-                {
-                    item.gameObject.SetActive(false);
-                }
+                    foreach (Transform item in onBoardPlasticBottles)
+                    {
+                        item.gameObject.SetActive(false);
+                    }
 
-                //keeps parents active
-                onBoardPlasticBags[0].gameObject.SetActive(true);
-                onBoardPlasticBottles[0].gameObject.SetActive(true);
-                onBoardPlasticTakeaway[0].gameObject.SetActive(true);
+                    foreach (Transform item in onBoardPlasticBags)
+                    {
+                        item.gameObject.SetActive(false);
+                    }
 
-                break;
-            case PollutantType.type.GeneralWaste:
+                    //keeps parents active
+                    onBoardPlasticBags[0].gameObject.SetActive(true);
+                    onBoardPlasticBottles[0].gameObject.SetActive(true);
+                    onBoardPlasticTakeaway[0].gameObject.SetActive(true);
 
-                //resets the index 
-                trashIndex = 1;
-                cansIndex = 1;
-                coffeeIndex = 1;
+                    break;
+                case PollutantType.type.GeneralWaste:
 
-                //hides those polltants on the boat
-                foreach (Transform item in onBoardGWTrash)
-                {
-                    item.gameObject.SetActive(false);
-                }
+                    //resets the index 
+                    trashIndex = 1;
+                    cansIndex = 1;
+                    coffeeIndex = 1;
 
-                foreach (Transform item in onBoardGWCans)
-                {
-                    item.gameObject.SetActive(false);
-                }
+                    //hides those polltants on the boat
+                    foreach (Transform item in onBoardGWTrash)
+                    {
+                        item.gameObject.SetActive(false);
+                    }
 
-                foreach (Transform item in onBoardGWCoffee)
-                {
-                    item.gameObject.SetActive(false);
-                }
+                    foreach (Transform item in onBoardGWCans)
+                    {
+                        item.gameObject.SetActive(false);
+                    }
 
-                onBoardGWCans[0].gameObject.SetActive(true);
-                onBoardGWCoffee[0].gameObject.SetActive(true);
-                onBoardGWTrash[0].gameObject.SetActive(true);
+                    foreach (Transform item in onBoardGWCoffee)
+                    {
+                        item.gameObject.SetActive(false);
+                    }
 
-                break;
-            default:
-                break;
+                    onBoardGWCans[0].gameObject.SetActive(true);
+                    onBoardGWCoffee[0].gameObject.SetActive(true);
+                    onBoardGWTrash[0].gameObject.SetActive(true);
+
+                    break;
+                default:
+                    break;
+            }
         }
+
     }
 
     private void ClearBoat()

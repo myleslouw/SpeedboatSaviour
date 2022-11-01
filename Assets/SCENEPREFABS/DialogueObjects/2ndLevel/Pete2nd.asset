@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f08071ba53a644b4e9c9b2b60070b608, type: 3}
-  m_Name: PeteStart
+  m_Name: Pete2nd
   m_EditorClassIdentifier: 
   npcName: Pete Starboard - Mechanic
   sentences:
-  - Hey, I'm Pete, I work on the boats around here. If you can help us, I'll give
-    you something worth while.
-  - I'll keep that in mind, Cheers Pete
-  rewardAfter: 0
+  - Thanks for helping us out, as promised......keep helping and I'll keep rewarding
+  rewardAfter: 1

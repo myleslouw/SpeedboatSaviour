@@ -3,17 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] NPCSinLevel;            //empty that holds the NPCs as children in their respective positions (Index is the level num)
-    [SerializeField] Transform[] SpawnPoints;              //the spawning point for the pollution to spawn around               (index is the level num)
-
-    [SerializeField] GameObject PrevArea;               //the area the player was prev in/just finished must now be enabled which shows the fish/sea life
+    public GameObject[] LevelItems;          //holds all the items in the leve (the index is the level num)
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        EventManager.OnDelegateEvent NextLevelDelegate = NextLevel;
+        EventManager.Instance.AddListener(EventManager.EVENT_TYPE.LEVEL_UP,NextLevelDelegate);
     }
 
     // Update is called once per frame
@@ -22,11 +21,15 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public void LoadLevel(int levelNum)
+    public void NextLevel(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
     {
         //when a level is loaded
-        //it should spawn the player in the spot designated for that level
         //spawn the relevant NPCs for that level
+        LevelItems[GameManager.Level].SetActive(false);
+        //increments the level counter
+        GameManager.Level++;
+        //sets the Level 2 GameObject which holds the levels NPCs, trash spawning point and the sea life of the previously completed area
+        LevelItems[GameManager.Level].SetActive(true);
 
     }
 }

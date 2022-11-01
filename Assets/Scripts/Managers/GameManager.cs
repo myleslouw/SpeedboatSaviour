@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     public void GameStartBoat(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
     {
         SetBoat(currentBoat);
+        
     }
 
     public void GameEnd(EventManager.EVENT_TYPE eventType, Component sender, object Params = null)
