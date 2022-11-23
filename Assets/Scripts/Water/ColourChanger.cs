@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Polyperfect.Animals;
 using UnityEngine;
 
 public class ColourChanger : MonoBehaviour
@@ -14,6 +15,8 @@ public class ColourChanger : MonoBehaviour
     Color ShallowEndColour = new Color(0.118f, 0.925f, 0.840f, 0.808f);
     Color DeepEndColour = new Color(0.087f, 0.452f, 0.594f, 0.694f);
 
+    private Animal_WanderScript wanderScript;
+
     private void Awake()
     {
         
@@ -27,6 +30,8 @@ public class ColourChanger : MonoBehaviour
         EventManager.Instance.AddListener(EventManager.EVENT_TYPE.LEVEL_UP, WaterChangeDelegate);
         Mesh.material.SetColor("ShallowWater", ShallowStartColour);
         Mesh.material.SetColor("DeepWater", DeepStartColour);
+        
+        
     }
 
     // Update is called once per frame

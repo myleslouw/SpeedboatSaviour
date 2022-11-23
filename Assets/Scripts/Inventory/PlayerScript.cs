@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Polyperfect.Animals;
+using Polyperfect.Common;
 using UnityEngine;
 
 
@@ -8,6 +10,7 @@ public class PlayerScript : MonoBehaviour
 {
     private AudioManager audioManager;
     public SoundObj impactSoundObj, recycleSoundObj, pickupObj;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +18,6 @@ public class PlayerScript : MonoBehaviour
         audioManager = GetComponent<BoatController>().audioManager;
 
         //adding the impact and recycle sounds to the list
-
-
         impactSoundObj.source = transform.GetChild(3).GetComponent<AudioSource>();
         audioManager.AddSoundToList(impactSoundObj);
 
@@ -33,6 +34,8 @@ public class PlayerScript : MonoBehaviour
     //TRIGGER ONCE
     private void OnTriggerEnter(Collider other)
     {
+        
+        
         if (other != null)
         {
             //stores the gameobject it collides with
@@ -63,6 +66,8 @@ public class PlayerScript : MonoBehaviour
                 //if player collides with NPC collider it will trigger the NPC talk event 
                 EventManager.Instance.PostEventNotification(EventManager.EVENT_TYPE.NPC_TALK, this, collisionObj.GetComponent<NPC>());
             }
+
+            
         }
     }
 
@@ -74,6 +79,16 @@ public class PlayerScript : MonoBehaviour
         //collision.relativeVelocity.magnitude / 3
         impactSoundObj.volume = collision.relativeVelocity.magnitude / 3;
         audioManager.Play("Impact");
+        
+        if (collision.gameObject.CompareTag("Animal"))
+        {
+            
+            Animal_WanderScript wanderScript = collision.gameObject.GetComponent<Animal_WanderScript>();
+                
+            Debug.Log("Player bumped into " + collision.gameObject.name);
+
+            //wanderScript.TakeDamage(1000);
+        }
     }
 
     private void OnTriggerExit(Collider other)
